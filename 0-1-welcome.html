@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 0.1 — What You Are Going to Build | AI Agents in Action</title>
+<meta name="description" content="The three free platforms, what an AI agent actually is, and everything to have ready before you begin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg: #1A0A2E;
+  --mid: #2D1B4E;
+  --card: #3D2660;
+  --m1: #C9B8E8;
+  --m2: #60A5FA;
+  --m3: #4ADE80;
+  --m4: #FBBF24;
+  --prompt-bg: #0D0D1A;
+  --white: #FFFFFF;
+  --muted: #A89BC2;
+  --border: #5B3F8C;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; line-height: 1.2; }
+a { color: inherit; }
+img { max-width: 100%; }
+.wrap { max-width: 780px; margin: 0 auto; padding: 0 20px 70px; }
+
+:root { --mod: #C9B8E8; }
+header.top { background: linear-gradient(180deg, var(--mid) 0%, var(--bg) 100%); border-bottom: 1px solid var(--border); padding: 26px 0 34px; }
+.home-link { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 700; }
+.home-link:hover { color: var(--white); }
+.badge { display: inline-block; background: var(--mod); color: #1A0A2E; font-weight: 800; font-size: 12.5px; letter-spacing: 0.09em; text-transform: uppercase; padding: 6px 15px; border-radius: 100px; }
+.coursename { display: block; margin-top: 10px; color: var(--muted); font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 800; }
+.lesson-num { color: var(--mod); font-size: 15px; font-weight: 800; letter-spacing: 0.08em; margin: 20px 0 6px; }
+h1 { font-size: clamp(30px, 6.2vw, 47px); margin: 0 0 16px; }
+.readtime { color: var(--muted); font-size: 14px; margin: 0; font-weight: 700; letter-spacing: 0.04em; }
+nav.progress { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 20px 16px; margin: 32px 0 42px; }
+nav.progress h2 { font-size: 12.5px; margin: 0 0 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-family: 'Nunito', sans-serif; font-weight: 800; }
+nav.progress ul { list-style: none; margin: 0; padding: 0; }
+nav.progress li { margin: 0 0 5px; }
+nav.progress a { display: flex; gap: 10px; text-decoration: none; color: var(--muted); font-size: 15px; padding: 9px 13px; border-radius: 9px; }
+nav.progress a:hover { background: rgba(255,255,255,0.06); color: var(--white); }
+nav.progress .n { font-weight: 800; color: var(--mod); flex: 0 0 auto; }
+nav.progress li.current a { background: var(--mod); color: #1A0A2E; font-weight: 800; }
+nav.progress li.current .n { color: #1A0A2E; }
+.section { margin: 0 0 42px; }
+.section-label { font-family: 'Nunito', sans-serif; font-size: 12.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mod); margin: 0 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.section p { margin: 0 0 18px; }
+.section p:last-child { margin-bottom: 0; }
+.section h3 { font-size: 21px; margin: 26px 0 10px; color: var(--white); }
+.section ol.steps { list-style: none; counter-reset: s; margin: 0; padding: 0; }
+.section ol.steps > li { counter-increment: s; position: relative; padding: 0 0 0 46px; margin: 0 0 18px; }
+.section ol.steps > li::before { content: counter(s); position: absolute; left: 0; top: 2px; width: 30px; height: 30px; border-radius: 50%; background: var(--mod); color: #1A0A2E; font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; font-family: 'Nunito', sans-serif; }
+.section ol.steps > li b { color: var(--mod); }
+.section ul.plain { list-style: none; margin: 0 0 18px; padding: 0; }
+.section ul.plain > li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+.section ul.plain > li::before { content: ""; position: absolute; left: 0; top: 12px; width: 8px; height: 8px; border-radius: 50%; background: var(--mod); }
+.section strong { color: var(--mod); font-weight: 800; }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+.compare div { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; font-size: 15.5px; }
+.compare b { display: block; color: var(--mod); font-size: 12.5px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
+.prompt-box { background: var(--prompt-bg); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.prompt-bar { background: var(--m1); color: #1A0A2E; font-weight: 800; font-size: 12.5px; letter-spacing: 0.11em; text-transform: uppercase; padding: 13px 20px; }
+.prompt-text { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 13.5px; line-height: 1.65; color: #E7E1F5; white-space: pre-wrap; word-wrap: break-word; margin: 0; padding: 22px 20px 6px; overflow-x: auto; }
+.copy-btn { display: block; width: calc(100% - 40px); margin: 16px 20px 0; background: var(--mod); color: #1A0A2E; border: 0; border-radius: 100px; padding: 15px 22px; font-family: inherit; font-weight: 800; font-size: 15.5px; cursor: pointer; }
+.copy-btn:hover { opacity: 0.87; }
+.copy-btn.copied { background: var(--m3); }
+.prompt-note { color: var(--muted); font-size: 13.5px; margin: 14px 20px 20px; font-style: italic; }
+.checklist { list-style: none; margin: 0; padding: 22px 20px; }
+.checklist li { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; font-size: 15.5px; color: #E7E1F5; }
+.checklist li:last-child { margin-bottom: 0; }
+.checklist .box { flex: 0 0 auto; width: 19px; height: 19px; margin-top: 5px; border: 2px solid var(--m1); border-radius: 4px; }
+.checklist b { color: var(--m1); }
+.action { background: var(--m4); color: #1A0A2E; border-radius: 14px; padding: 26px 28px; margin: 0 0 42px; }
+.action h2 { font-family: 'Nunito', sans-serif; margin: 0 0 18px; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 800; color: #1A0A2E; border: 0; padding: 0; }
+.action ol { list-style: none; counter-reset: a; margin: 0; padding: 0; }
+.action ol li { counter-increment: a; position: relative; padding-left: 40px; margin-bottom: 14px; font-weight: 700; }
+.action ol li:last-child { margin-bottom: 0; }
+.action ol li::before { content: counter(a); position: absolute; left: 0; top: 1px; width: 27px; height: 27px; border-radius: 50%; background: #1A0A2E; color: var(--m4); font-weight: 800; font-size: 13.5px; display: flex; align-items: center; justify-content: center; }
+.transition { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--mod); border-radius: 14px; padding: 22px 24px; margin: 0 0 42px; }
+.transition h3 { margin: 0 0 10px; font-size: 20px; color: var(--mod); }
+.transition p { margin: 0; }
+.footer-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding-top: 32px; border-top: 1px solid var(--border); }
+.nav-btn { display: flex; flex-direction: column; gap: 4px; text-decoration: none; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; }
+.nav-btn:hover { border-color: var(--mod); }
+.nav-btn.next { background: var(--mod); border-color: var(--mod); color: #1A0A2E; text-align: right; }
+.nav-dir { font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 800; color: var(--mod); }
+.nav-btn.next .nav-dir { color: #1A0A2E; opacity: 0.75; }
+.nav-title { font-weight: 700; font-size: 15px; }
+.site-footer { border-top: 1px solid var(--border); padding: 30px 20px 46px; text-align: center; color: var(--muted); font-size: 13.5px; }
+.site-footer b { display: block; color: var(--white); font-family: 'Playfair Display', Georgia, serif; font-size: 17px; margin-bottom: 6px; }
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  .wrap { padding: 0 16px 50px; }
+  .compare { grid-template-columns: 1fr; }
+  .footer-nav { grid-template-columns: 1fr; }
+  .nav-btn.next { text-align: left; }
+  nav.progress a { font-size: 14.5px; }
+}
+</style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="wrap" style="padding-bottom:0">
+    <a class="home-link" href="../index.html">&larr; All lessons</a>
+    <div style="margin-top:18px"><span class="badge">Module 0 — Welcome</span></div>
+    <span class="coursename">AI Agents in Action</span>
+    <p class="lesson-num">Lesson 0.1</p>
+    <h1>What You Are Going to Build</h1>
+    <p class="readtime">4 minute read</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="progress">
+    <h2>Module 0 — Welcome</h2>
+    <ul>
+        <li class="current"><a href="#top"><span class="n">0.1</span><span class="t">What You Are Going to Build</span></a></li>
+    </ul>
+  </nav>
+
+  <article>
+
+    <section class="section" id="section-1">
+      <h2 class="section-label">Section 1 &mdash; The Concept</h2>
+
+      <p>Most online entrepreneurs spend hours every week on tasks that could quite happily run themselves.</p>
+      <p>Creating content from a blank page every Sunday evening. Copying leads into a spreadsheet by hand, one name at a time. Re-explaining your business to Claude at the start of every single session, because it has no memory of the last one.</p>
+      <p>This course solves all of that using three free platforms.</p>
+      <p>You do not need to be technical. You do not need to code. There is no software to buy and nothing to install.</p>
+      <p>What you need is one afternoon per module, the patience to follow the steps in order, and a willingness to let your tools do the repetitive work for you instead of doing it yourself at eleven at night.</p>
+    </section>
+
+    <section class="section" id="section-2">
+      <h2 class="section-label">Section 2 &mdash; The Breakdown</h2>
+
+      <h3>What an AI agent actually is</h3>
+      <p>An agent is <strong>not a single prompt</strong>. It is a connected sequence, where the output of each step automatically feeds the next input.</p>
+      <p>You ask once. Claude works through every step in order and produces a finished result rather than a single answer.</p>
+
+      <h3>The three free platforms</h3>
+      <ul class="plain">
+        <li><strong>Claude</strong> &mdash; the thinking and creating. Ideas, writing, products, sales copy, customer replies.</li>
+        <li><strong>Zapier</strong> &mdash; connecting your tools and automating the admin between them.</li>
+        <li><strong>Taskade</strong> &mdash; project management and your weekly workflow.</li>
+      </ul>
+
+      <h3>What you will have by the end</h3>
+      <ul class="plain">
+        <li><strong>4 Claude agents</strong> installed as permanent one-word skills.</li>
+        <li><strong>4 or more Zapier automations</strong> running automatically without you.</li>
+        <li><strong>A complete Taskade workspace</strong> with 2 agents running your Monday morning routine.</li>
+      </ul>
+
+      <h3>What to have ready before starting</h3>
+      <p>A free Claude account at claude.ai, a free Zapier account at zapier.com, a free Taskade account at taskade.com, and a Google account with access to Google Forms, Gmail, Sheets and Docs.</p>
+      <p>That is the entire list. There is nothing to buy at any point in this course, and no free trial that quietly turns into a subscription in thirty days.</p>
+    </section>
+
+    <section class="section" id="section-3">
+      <h2 class="section-label">Section 3 &mdash; Before You Begin</h2>
+      <div class="prompt-box">
+        <div class="prompt-bar">Before You Begin &mdash; Have These Ready</div>
+        <ul class="checklist">
+        <li><span class="box" aria-hidden="true"></span><span><b>Free Claude account</b> &mdash; sign up at claude.ai &mdash; no credit card needed</span></li>
+        <li><span class="box" aria-hidden="true"></span><span><b>Free Zapier account</b> &mdash; sign up at zapier.com &mdash; use your Google account</span></li>
+        <li><span class="box" aria-hidden="true"></span><span><b>Free Taskade account</b> &mdash; sign up at taskade.com &mdash; use your Google account</span></li>
+        <li><span class="box" aria-hidden="true"></span><span><b>Google account</b> &mdash; for Google Forms, Gmail, Google Sheets and Google Docs &mdash; all free</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="section-4">
+      <h2 class="section-label">Section 4 &mdash; How to Use the Output</h2>
+
+      <p>Work through the modules in order &mdash; Claude first, then Zapier, then Taskade &mdash; because each one builds on the one before it.</p>
+      <p>Your Claude agents produce the work. Your Zaps feed those agents with leads and ideas automatically. Taskade is where all of it lands and gets scheduled. Skip ahead to Module 3 and you will be organising work that does not exist yet.</p>
+      <p>Each lesson has a prompt to run and an action to complete before moving on. Do not skip the actions. They build the foundation the next lesson assumes you already have.</p>
+      <p>If you get stuck on any prompt, re-read the lesson and check that every bracket has been replaced with your real details.</p>
+      <p>This is the single biggest difference between a student who gets brilliant results and one who gets bland ones. Vague brackets produce vague outputs. Specific real details produce specific useful results.</p>
+    </section>
+
+    <section class="action" id="section-5">
+      <h2>Your Action Today</h2>
+      <ol>
+          <li>Bookmark this lesson hub in your browser</li>
+          <li>Sign up for a free Claude account at claude.ai</li>
+          <li>Sign up for a free Zapier account at zapier.com using your Google account</li>
+          <li>Sign up for a free Taskade account at taskade.com using your Google account</li>
+          <li>Confirm you can access Google Forms, Gmail, Google Sheets and Google Docs</li>
+          <li>Come back and open Lesson 1.1 &mdash; What a Claude Agent Is</li>
+      </ol>
+    </section>
+
+  </article>
+
+  <div class="footer-nav">
+    <a class="nav-btn prev" href="../index.html"><span class="nav-dir">&larr; Previous</span><span class="nav-title">Course hub</span></a>
+    <a class="nav-btn next" href="../module-1/1-1-what-is-agent.html"><span class="nav-dir">Next &rarr;</span><span class="nav-title">1.1 What a Claude Agent Is</span></a>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <b>AI Agents in Action</b>
+  GetPaidToBeYouOnline
+</footer>
+
+<script>
+(function () {
+  var CHECK = '\u2713';
+  document.querySelectorAll('.copy-btn').forEach(function (btn) {
+    var label = btn.querySelector('.copy-label') || btn;
+    btn.addEventListener('click', function () {
+      var el = document.getElementById(btn.getAttribute('data-target'));
+      if (!el) return;
+      var text = el.innerText;
+      var original = label.textContent;
+      var done = function () {
+        label.textContent = CHECK + '  Copied';
+        btn.classList.add('copied');
+        setTimeout(function () {
+          label.textContent = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      };
+      var fallback = function () {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'absolute';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        ta.setSelectionRange(0, ta.value.length);
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+        document.body.removeChild(ta);
+        if (ok) { done(); }
+        else {
+          label.textContent = 'Select the text above and press Ctrl+C';
+          setTimeout(function () { label.textContent = original; }, 2500);
+        }
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else {
+        fallback();
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
