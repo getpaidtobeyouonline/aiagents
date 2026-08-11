@@ -1,0 +1,2776 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The 50 Claude Agent Prompt Pack</title><meta name="description" content="50 complete Claude agent sequences — fill in the brackets — paste — run"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"><style>:root{--bg:#1A0A2E;--mid:#2D1B4E;--card:#3D2660;--m1:#C9B8E8;--m2:#60A5FA;
+--m3:#4ADE80;--m4:#FBBF24;--prompt-bg:#0D0D1A;--white:#FFFFFF;--muted:#A89BC2;
+--border:#5B3F8C;--green:#22C55E}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--white);font-family:'Nunito',-apple-system,BlinkMacSystemFont,sans-serif;
+font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-height:1.2}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 70px}
+header.top{background:linear-gradient(180deg,var(--mid) 0%,var(--bg) 100%);
+border-bottom:1px solid var(--border);padding:34px 0 30px}
+header.top .wrap{padding-bottom:0}
+.home{color:var(--muted);text-decoration:none;font-size:14px;font-weight:700}
+.home:hover{color:var(--white)}
+h1.title{font-size:clamp(30px,5.5vw,46px);margin:18px 0 12px}
+.sub{color:var(--m1);font-size:clamp(15px,2.2vw,19px);font-family:'Playfair Display',Georgia,serif}
+.copy-btn{background:var(--mod,var(--m1));color:#1A0A2E;border:0;border-radius:100px;
+padding:12px 24px;font-family:inherit;font-weight:800;font-size:14.5px;cursor:pointer}
+.copy-btn:hover{opacity:.87}
+.copy-btn.copied{background:var(--green);color:#fff}
+.site-footer{border-top:1px solid var(--border);padding:30px 20px 50px;text-align:center;
+color:var(--muted);font-size:13.5px}
+.site-footer b{display:block;color:var(--white);font-family:'Playfair Display',Georgia,serif;
+font-size:17px;margin-bottom:6px}
+@media(max-width:600px){body{font-size:16px}.wrap{padding:0 16px 50px}}.tools{background:var(--mid);border-bottom:1px solid var(--border);padding:20px 0}
+.tw{max-width:1080px;margin:0 auto;padding:0 20px}
+.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:14px}
+.fb{background:var(--card);border:1px solid var(--border);color:var(--muted);border-radius:100px;
+padding:9px 18px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer}
+.fb:hover{color:var(--white)}
+.fb.on{background:var(--m1);border-color:var(--m1);color:#1A0A2E}
+#search{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--white);
+border-radius:10px;padding:13px 16px;font-family:inherit;font-size:16px}
+#search::placeholder{color:var(--muted)}
+#search:focus{outline:none;border-color:var(--m1)}
+.count{color:var(--muted);font-size:13.5px;font-weight:700;margin-top:12px;
+letter-spacing:.06em;text-transform:uppercase}
+.item{background:var(--card);border:1px solid var(--border);border-left:5px solid var(--mod);
+border-radius:12px;margin-bottom:14px;overflow:hidden}
+.ih{display:flex;align-items:flex-start;gap:16px;padding:18px 22px;cursor:pointer}
+.ih:hover{background:rgba(255,255,255,.04)}
+.badge{flex:0 0 auto;background:var(--mod);color:#1A0A2E;font-size:11px;font-weight:800;
+letter-spacing:.07em;text-transform:uppercase;padding:5px 11px;border-radius:100px;margin-top:3px}
+.num{flex:0 0 auto;color:var(--mod);font-family:'Playfair Display',serif;font-weight:700;
+font-size:22px;min-width:34px;text-align:right}
+.ttl{flex:1}
+.ttl b{display:block;font-size:17.5px;font-weight:800;line-height:1.35}
+.ttl span{display:block;color:var(--muted);font-size:14px;margin-top:4px}
+.chev{flex:0 0 auto;color:var(--mod);font-size:15px;font-weight:800;transition:transform .2s}
+.item.open .chev{transform:rotate(90deg)}
+.ib{display:none;padding:0 22px 22px}
+.item.open .ib{display:block}
+.pre{background:var(--prompt-bg);border:1px solid var(--border);border-radius:10px;
+font-family:'SFMono-Regular',Consolas,Menlo,monospace;font-size:13.5px;line-height:1.62;
+color:#E7E1F5;white-space:pre-wrap;word-wrap:break-word;padding:18px 20px;overflow-x:auto}
+.meta{display:grid;gap:12px;margin-bottom:14px}
+.mrow{background:var(--mid);border-radius:10px;padding:13px 18px}
+.mrow b{display:block;color:var(--mod);font-size:11.5px;font-weight:800;letter-spacing:.11em;
+text-transform:uppercase;margin-bottom:5px}
+.mrow span{font-size:14.5px;white-space:pre-line;line-height:1.5}
+.flow{color:var(--muted);font-size:14px;font-family:'SFMono-Regular',Consolas,monospace}
+.none{text-align:center;color:var(--muted);padding:50px 20px;font-size:17px}
+@media(max-width:620px){.ih{flex-wrap:wrap;gap:10px}.num{min-width:auto}.ttl{flex:1 1 100%;order:3}}</style></head><body><header class="top"><div class="wrap"><a class="home" href="../index.html">&larr; All products</a><h1 class="title">The 50 Claude Agent Prompt Pack</h1><p class="sub">50 complete Claude agent sequences — fill in the brackets — paste — run</p></div></header><div class="tools"><div class="tw"><div class="filters"><button class="fb on" data-cat="All">All</button><button class="fb" data-cat="Content">Content</button><button class="fb" data-cat="Products">Products</button><button class="fb" data-cat="Sales">Sales</button><button class="fb" data-cat="Customer Service">Customer Service</button><button class="fb" data-cat="Research">Research</button></div><input id="search" type="search" placeholder="Search by keyword&hellip;" autocomplete="off"><p class="count" id="count">Showing 50 of 50 prompts</p></div></div><main class="wrap" style="padding-top:26px"><article class="item" data-cat="Content" data-search="content create a full month of content from one topic i create content about [your topic] for [your specific audience —
+describe who they are and what they want].
+my brand tone is [describe how you write — e.g. warm, direct,
+conversational, british spelling, no jargon].
+my main content platforms are [list up to 3 platforms].
+
+run my monthly content planning agent. complete all 5 steps in order.
+show me the full output of each step before moving to the next:
+
+step 1 — generate 30 specific content ideas for this month.
+          every idea must address a real and specific problem my
+          audience has right now. no generic advice. no recycled tips.
+          format as a numbered list.
+
+step 2 — select the top 10 ideas most likely to generate engagement
+          from my specific audience. for each one write one sentence
+          explaining exactly why it will resonate.
+
+step 3 — write a complete short-form post for each of the 10 ideas.
+          under 150 words each. one thought per line.
+          use my brand tone throughout. each post stands alone.
+
+step 4 — for each of the 10 posts recommend the best content format —
+          short video script, written post, email newsletter, or
+          image carousel. one sentence of reasoning per post.
+
+step 5 — rewrite the top 3 posts in a completely different format
+          for a second platform or a different audience segment." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Content</span><span class="num">1</span><span class="ttl"><b>Create a Full Month of Content From One Topic</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p1">I create content about [your topic] for [your specific audience —
+describe who they are and what they want].
+My brand tone is [describe how you write — e.g. warm, direct,
+conversational, British spelling, no jargon].
+My main content platforms are [list up to 3 platforms].
+
+Run my monthly content planning agent. Complete all 5 steps in order.
+Show me the full output of each step before moving to the next:
+
+Step 1 — Generate 30 specific content ideas for this month.
+          Every idea must address a real and specific problem my
+          audience has right now. No generic advice. No recycled tips.
+          Format as a numbered list.
+
+Step 2 — Select the top 10 ideas most likely to generate engagement
+          from my specific audience. For each one write one sentence
+          explaining exactly why it will resonate.
+
+Step 3 — Write a complete short-form post for each of the 10 ideas.
+          Under 150 words each. One thought per line.
+          Use my brand tone throughout. Each post stands alone.
+
+Step 4 — For each of the 10 posts recommend the best content format —
+          short video script, written post, email newsletter, or
+          image carousel. One sentence of reasoning per post.
+
+Step 5 — Rewrite the top 3 posts in a completely different format
+          for a second platform or a different audience segment.</pre><button class="copy-btn" data-copy="p1" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Content" data-search="content turn one content idea into 5 complete pieces i create content about [your topic] for [your audience].
+my brand tone: [describe how you write].
+my platforms: [list your platforms].
+
+content idea i want to develop: [describe the idea in one sentence —
+the topic and the specific angle you want to take].
+
+run my content deep dive agent. complete all 5 steps in order:
+
+step 1 — write a complete long-form written post on this idea.
+          600 to 800 words. practical and specific throughout.
+          one section per key point. in my brand tone.
+
+step 2 — summarise the long-form post into a short-form post.
+          under 150 words. one thought per line. hook opening line.
+          suitable for social media or community posting.
+
+step 3 — turn the key points of the long-form post into a
+          5-slide carousel script. slide 1 is the hook. slides 2 to 4
+          are the key points. slide 5 is the cta.
+
+step 4 — write a complete email newsletter using the same idea.
+          subject line. opening hook. main insight. one practical
+          action. closing cta. under 400 words total.
+
+step 5 — write a 60-second short video script on the same idea.
+          opening hook (10 seconds). main content (40 seconds).
+          cta (10 seconds). conversational. no jargon." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Content</span><span class="num">2</span><span class="ttl"><b>Turn One Content Idea Into 5 Complete Pieces</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p2">I create content about [your topic] for [your audience].
+My brand tone: [describe how you write].
+My platforms: [list your platforms].
+
+Content idea I want to develop: [describe the idea in one sentence —
+the topic and the specific angle you want to take].
+
+Run my content deep dive agent. Complete all 5 steps in order:
+
+Step 1 — Write a complete long-form written post on this idea.
+          600 to 800 words. Practical and specific throughout.
+          One section per key point. In my brand tone.
+
+Step 2 — Summarise the long-form post into a short-form post.
+          Under 150 words. One thought per line. Hook opening line.
+          Suitable for social media or community posting.
+
+Step 3 — Turn the key points of the long-form post into a
+          5-slide carousel script. Slide 1 is the hook. Slides 2 to 4
+          are the key points. Slide 5 is the CTA.
+
+Step 4 — Write a complete email newsletter using the same idea.
+          Subject line. Opening hook. Main insight. One practical
+          action. Closing CTA. Under 400 words total.
+
+Step 5 — Write a 60-second short video script on the same idea.
+          Opening hook (10 seconds). Main content (40 seconds).
+          CTA (10 seconds). Conversational. No jargon.</pre><button class="copy-btn" data-copy="p2" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Content" data-search="content write 10 posts that get replies and comments i create content about [your topic] for [your audience].
+my brand tone: [describe how you write].
+my main platform: [your primary platform].
+
+run my engagement post agent. complete all 4 steps in order:
+
+step 1 — generate 10 engagement post ideas. each idea should
+          invite my audience to share their experience, opinion,
+          or question. not generic polls. specific to my niche
+          and the real conversations my audience is having.
+
+step 2 — write the complete post for each of the 10 ideas.
+          under 120 words each. one thought per line.
+          end every post with a question that is easy to answer
+          in one or two sentences.
+
+step 3 — for each post write 3 different opening lines (hooks).
+          each hook takes a different approach — story opening,
+          bold statement, or direct question.
+
+step 4 — suggest the best day and time to post each one based
+          on the type of content and the likely emotional state
+          of my audience when they will see it." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Content</span><span class="num">3</span><span class="ttl"><b>Write 10 Posts That Get Replies and Comments</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p3">I create content about [your topic] for [your audience].
+My brand tone: [describe how you write].
+My main platform: [your primary platform].
+
+Run my engagement post agent. Complete all 4 steps in order:
+
+Step 1 — Generate 10 engagement post ideas. Each idea should
+          invite my audience to share their experience, opinion,
+          or question. Not generic polls. Specific to my niche
+          and the real conversations my audience is having.
+
+Step 2 — Write the complete post for each of the 10 ideas.
+          Under 120 words each. One thought per line.
+          End every post with a question that is easy to answer
+          in one or two sentences.
+
+Step 3 — For each post write 3 different opening lines (hooks).
+          Each hook takes a different approach — story opening,
+          bold statement, or direct question.
+
+Step 4 — Suggest the best day and time to post each one based
+          on the type of content and the likely emotional state
+          of my audience when they will see it.</pre><button class="copy-btn" data-copy="p3" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Content" data-search="content turn one piece of content into 8 different formats here is the original piece of content i want to repurpose:
+
+[paste your full original content here — blog post, newsletter,
+video transcript, podcast notes, or any piece of long-form content]
+
+my brand tone: [describe how you write].
+my platforms: [list every platform you post on].
+
+run my content repurposing agent. repurpose this content into
+all 8 formats below. write each one in full:
+
+format 1 — short social post (under 150 words, one thought per line)
+format 2 — long social post (300 to 400 words, story format)
+format 3 — email newsletter (subject line + hook + insight + cta)
+format 4 — 5-slide carousel script (slide by slide)
+format 5 — 60-second video script (hook + content + cta)
+format 6 — 3 substack notes (each under 300 characters)
+format 7 — community post for skool or facebook group
+format 8 — pinterest pin description (under 100 words, keyword-rich)
+
+for each format state the platform it is best suited for and
+why this format works for this specific piece of content." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Content</span><span class="num">4</span><span class="ttl"><b>Turn One Piece of Content Into 8 Different Formats</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p4">Here is the original piece of content I want to repurpose:
+
+[Paste your full original content here — blog post, newsletter,
+video transcript, podcast notes, or any piece of long-form content]
+
+My brand tone: [describe how you write].
+My platforms: [list every platform you post on].
+
+Run my content repurposing agent. Repurpose this content into
+all 8 formats below. Write each one in full:
+
+Format 1 — Short social post (under 150 words, one thought per line)
+Format 2 — Long social post (300 to 400 words, story format)
+Format 3 — Email newsletter (subject line + hook + insight + CTA)
+Format 4 — 5-slide carousel script (slide by slide)
+Format 5 — 60-second video script (hook + content + CTA)
+Format 6 — 3 Substack Notes (each under 300 characters)
+Format 7 — Community post for Skool or Facebook group
+Format 8 — Pinterest pin description (under 100 words, keyword-rich)
+
+For each format state the platform it is best suited for and
+why this format works for this specific piece of content.</pre><button class="copy-btn" data-copy="p4" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Content" data-search="content create content around a trending topic in your niche my niche: [your specific topic area].
+my audience: [describe who they are and what they want].
+my brand tone: [describe how you write].
+
+trending topic or news item i want to create content about:
+[describe the trend, news item, or conversation happening in your
+niche right now — what it is and why people are talking about it]
+
+run my trending content agent. complete all 4 steps in order:
+
+step 1 — explain why this trending topic is relevant to my audience.
+          what does it mean for them specifically? what question are
+          they asking about it right now? why does it matter to their
+          daily life or business?
+
+step 2 — write 3 different content pieces on this topic:
+          piece a — my take (opinion post, first person, under 200 words)
+          piece b — practical (what to do about it, under 200 words)
+          piece c — story (real example of how this affects someone
+          like my audience, under 200 words)
+
+step 3 — write a complete email newsletter on this topic.
+          subject line that creates curiosity without clickbait.
+          hook. context. my take. one action for the reader.
+
+step 4 — suggest 3 follow-up content pieces i could create after
+          this one to build on the same topic over the next week." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Content</span><span class="num">5</span><span class="ttl"><b>Create Content Around a Trending Topic in Your Niche</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p5">My niche: [your specific topic area].
+My audience: [describe who they are and what they want].
+My brand tone: [describe how you write].
+
+Trending topic or news item I want to create content about:
+[describe the trend, news item, or conversation happening in your
+niche right now — what it is and why people are talking about it]
+
+Run my trending content agent. Complete all 4 steps in order:
+
+Step 1 — Explain why this trending topic is relevant to my audience.
+          What does it mean for them specifically? What question are
+          they asking about it right now? Why does it matter to their
+          daily life or business?
+
+Step 2 — Write 3 different content pieces on this topic:
+          Piece A — My take (opinion post, first person, under 200 words)
+          Piece B — Practical (what to do about it, under 200 words)
+          Piece C — Story (real example of how this affects someone
+          like my audience, under 200 words)
+
+Step 3 — Write a complete email newsletter on this topic.
+          Subject line that creates curiosity without clickbait.
+          Hook. Context. My take. One action for the reader.
+
+Step 4 — Suggest 3 follow-up content pieces I could create after
+          this one to build on the same topic over the next week.</pre><button class="copy-btn" data-copy="p5" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Content" data-search="content turn a personal experience into compelling content my niche: [your topic area].
+my audience: [describe who they are].
+my brand tone: [describe how you write].
+
+here is the experience or story i want to share:
+[describe what happened — the situation, what you tried, what went
+wrong or right, what you learned. can be a personal experience,
+a client story, or an observation. be specific and honest.]
+
+run my story content agent. complete all 4 steps:
+
+step 1 — shape this into a complete story post using the
+          before-during-after structure.
+          before: the situation before the event.
+          during: what happened and how it felt.
+          after: what changed and what you learned.
+          under 300 words. one thought per line. in my brand tone.
+
+step 2 — extract the key lesson from the story and write a
+          standalone value post based on that lesson alone.
+          no story required to understand it. under 200 words.
+
+step 3 — turn the story into a 60-second video script.
+          hook line. story in 30 seconds. lesson in 15 seconds.
+          cta in 10 seconds.
+
+step 4 — write a complete email newsletter using this story.
+          subject line. story in the opening. lesson in the middle.
+          cta at the end. under 400 words." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Content</span><span class="num">6</span><span class="ttl"><b>Turn a Personal Experience Into Compelling Content</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p6">My niche: [your topic area].
+My audience: [describe who they are].
+My brand tone: [describe how you write].
+
+Here is the experience or story I want to share:
+[Describe what happened — the situation, what you tried, what went
+wrong or right, what you learned. Can be a personal experience,
+a client story, or an observation. Be specific and honest.]
+
+Run my story content agent. Complete all 4 steps:
+
+Step 1 — Shape this into a complete story post using the
+          Before-During-After structure.
+          Before: the situation before the event.
+          During: what happened and how it felt.
+          After: what changed and what you learned.
+          Under 300 words. One thought per line. In my brand tone.
+
+Step 2 — Extract the key lesson from the story and write a
+          standalone value post based on that lesson alone.
+          No story required to understand it. Under 200 words.
+
+Step 3 — Turn the story into a 60-second video script.
+          Hook line. Story in 30 seconds. Lesson in 15 seconds.
+          CTA in 10 seconds.
+
+Step 4 — Write a complete email newsletter using this story.
+          Subject line. Story in the opening. Lesson in the middle.
+          CTA at the end. Under 400 words.</pre><button class="copy-btn" data-copy="p6" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Content" data-search="content write a full week of content in one session my niche: [your topic area].
+my audience: [describe who they are and what they want].
+my brand tone: [describe how you write].
+my platforms: [list your platforms].
+this week&#x27;s theme or focus: [describe the topic or product you want
+to focus on this week — one sentence].
+
+run my weekly content batch agent. write all 7 content pieces below.
+write each one in full before moving to the next:
+
+monday — motivation post (inspire action, no product mention, under 150 words)
+tuesday — educational post (teach one specific thing, under 200 words)
+wednesday — story post (personal experience or client story, under 200 words)
+thursday — engagement post (invite replies, end with a question, under 120 words)
+friday — value post (practical tip or resource, under 150 words)
+saturday — promotional post (introduce a product or offer, include cta)
+sunday — reflection post (what you learned this week, under 150 words)
+
+for each post state the ideal time to post and the best format
+for my primary platform." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Content</span><span class="num">7</span><span class="ttl"><b>Write a Full Week of Content in One Session</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p7">My niche: [your topic area].
+My audience: [describe who they are and what they want].
+My brand tone: [describe how you write].
+My platforms: [list your platforms].
+This week&#x27;s theme or focus: [describe the topic or product you want
+to focus on this week — one sentence].
+
+Run my weekly content batch agent. Write all 7 content pieces below.
+Write each one in full before moving to the next:
+
+Monday — Motivation post (inspire action, no product mention, under 150 words)
+Tuesday — Educational post (teach one specific thing, under 200 words)
+Wednesday — Story post (personal experience or client story, under 200 words)
+Thursday — Engagement post (invite replies, end with a question, under 120 words)
+Friday — Value post (practical tip or resource, under 150 words)
+Saturday — Promotional post (introduce a product or offer, include CTA)
+Sunday — Reflection post (what you learned this week, under 150 words)
+
+For each post state the ideal time to post and the best format
+for my primary platform.</pre><button class="copy-btn" data-copy="p7" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Content" data-search="content build your complete content strategy in one session my niche: [your topic area].
+my audience: [describe who they are, what they want, and what
+they currently struggle with].
+my brand tone: [describe how you write].
+my products or services: [list what you sell].
+
+run my content strategy agent. complete all 4 steps in order:
+
+step 1 — define my 4 core content pillars. each pillar should
+          represent a theme i can create content about indefinitely.
+          each pillar should connect to my audience&#x27;s needs and
+          to my products. for each pillar give me a name, a one-
+          paragraph description, and 10 specific content ideas.
+
+step 2 — for each pillar write one complete example post that
+          shows exactly what content in this pillar looks like.
+          under 200 words each. in my brand tone.
+
+step 3 — create a 4-week content calendar using all 4 pillars.
+          one pillar per week. 5 posts per week. give me the
+          topic for each post in the calendar view.
+
+step 4 — write a bio for each of my platforms that reflects
+          my content pillars — instagram, linkedin, and a
+          newsletter or community description." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Content</span><span class="num">8</span><span class="ttl"><b>Build Your Complete Content Strategy in One Session</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p8">My niche: [your topic area].
+My audience: [describe who they are, what they want, and what
+they currently struggle with].
+My brand tone: [describe how you write].
+My products or services: [list what you sell].
+
+Run my content strategy agent. Complete all 4 steps in order:
+
+Step 1 — Define my 4 core content pillars. Each pillar should
+          represent a theme I can create content about indefinitely.
+          Each pillar should connect to my audience&#x27;s needs and
+          to my products. For each pillar give me a name, a one-
+          paragraph description, and 10 specific content ideas.
+
+Step 2 — For each pillar write one complete example post that
+          shows exactly what content in this pillar looks like.
+          Under 200 words each. In my brand tone.
+
+Step 3 — Create a 4-week content calendar using all 4 pillars.
+          One pillar per week. 5 posts per week. Give me the
+          topic for each post in the calendar view.
+
+Step 4 — Write a bio for each of my platforms that reflects
+          my content pillars — Instagram, LinkedIn, and a
+          newsletter or community description.</pre><button class="copy-btn" data-copy="p8" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Content" data-search="content write all the content for a complete lead magnet my niche: [your topic area].
+my audience: [describe your ideal lead — who they are, what
+they want, and what specific problem this lead magnet solves].
+my brand tone: [describe how you write].
+
+lead magnet idea: [describe what your lead magnet is — the format,
+the topic, and what the reader will be able to do after using it].
+
+run my lead magnet content agent. complete all 5 steps:
+
+step 1 — validate this lead magnet idea. will it attract buyers
+          or just freebie seekers? what makes it specific enough
+          to convert? what is the one thing that could make it
+          better? give me an honest assessment.
+
+step 2 — write all the content for the lead magnet itself.
+          include everything the reader needs — introduction,
+          main content sections, action steps, and a closing.
+          make it practical and immediately useful.
+
+step 3 — write the opt-in page copy. headline. subheadline.
+          3 bullet points on what they will get. cta button text.
+          under 100 words total.
+
+step 4 — write the welcome email to send after sign-up.
+          subject line. warm opening. deliver the lead magnet.
+          tell them what to do first. under 150 words.
+
+step 5 — write 3 follow-up emails to send in the week after
+          they receive the lead magnet. each email should add
+          value and naturally lead toward a paid offer." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Content</span><span class="num">9</span><span class="ttl"><b>Write All the Content for a Complete Lead Magnet</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p9">My niche: [your topic area].
+My audience: [describe your ideal lead — who they are, what
+they want, and what specific problem this lead magnet solves].
+My brand tone: [describe how you write].
+
+Lead magnet idea: [describe what your lead magnet is — the format,
+the topic, and what the reader will be able to do after using it].
+
+Run my lead magnet content agent. Complete all 5 steps:
+
+Step 1 — Validate this lead magnet idea. Will it attract buyers
+          or just freebie seekers? What makes it specific enough
+          to convert? What is the one thing that could make it
+          better? Give me an honest assessment.
+
+Step 2 — Write all the content for the lead magnet itself.
+          Include everything the reader needs — introduction,
+          main content sections, action steps, and a closing.
+          Make it practical and immediately useful.
+
+Step 3 — Write the opt-in page copy. Headline. Subheadline.
+          3 bullet points on what they will get. CTA button text.
+          Under 100 words total.
+
+Step 4 — Write the welcome email to send after sign-up.
+          Subject line. Warm opening. Deliver the lead magnet.
+          Tell them what to do first. Under 150 words.
+
+Step 5 — Write 3 follow-up emails to send in the week after
+          they receive the lead magnet. Each email should add
+          value and naturally lead toward a paid offer.</pre><button class="copy-btn" data-copy="p9" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Content" data-search="content analyse your content performance and plan what to create next my niche: [your topic area].
+my audience: [describe who they are].
+my main platforms: [list your platforms].
+
+here is my content performance data from the last 30 days:
+[paste your analytics — can be rough numbers, platform insights,
+or just a description of what you noticed. include: which posts
+got the most views, comments, shares, or sales. which got the
+least. what topics you covered. what formats you used.]
+
+run my content analytics agent. complete all 4 steps:
+
+step 1 — identify the 3 key patterns in my content performance.
+          what type of content is working? what is not? what does
+          my audience respond to most? be specific and direct.
+
+step 2 — based on the patterns, recommend my content strategy
+          for the next 30 days. what topics to cover. what formats
+          to use more. what to stop posting.
+
+step 3 — write 5 content ideas based specifically on what worked
+          best in the last 30 days. build on the winning content.
+
+step 4 — identify the one thing i should change about my content
+          approach immediately — the highest-impact single shift
+          based on what the data is telling me." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Content</span><span class="num">10</span><span class="ttl"><b>Analyse Your Content Performance and Plan What to Create Next</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p10">My niche: [your topic area].
+My audience: [describe who they are].
+My main platforms: [list your platforms].
+
+Here is my content performance data from the last 30 days:
+[Paste your analytics — can be rough numbers, platform insights,
+or just a description of what you noticed. Include: which posts
+got the most views, comments, shares, or sales. Which got the
+least. What topics you covered. What formats you used.]
+
+Run my content analytics agent. Complete all 4 steps:
+
+Step 1 — Identify the 3 key patterns in my content performance.
+          What type of content is working? What is not? What does
+          my audience respond to most? Be specific and direct.
+
+Step 2 — Based on the patterns, recommend my content strategy
+          for the next 30 days. What topics to cover. What formats
+          to use more. What to stop posting.
+
+Step 3 — Write 5 content ideas based specifically on what worked
+          best in the last 30 days. Build on the winning content.
+
+Step 4 — Identify the one thing I should change about my content
+          approach immediately — the highest-impact single shift
+          based on what the data is telling me.</pre><button class="copy-btn" data-copy="p10" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Products" data-search="products validate any digital product idea before you build it my niche: [your topic area].
+my audience: [describe your specific target buyer in detail —
+who they are, what they currently struggle with, what they have
+already tried, what success looks like to them].
+my existing products (if any): [list them with prices].
+
+product idea i want to validate:
+[describe the product in 3 to 4 sentences — what it is, what format
+it takes, who it is for, what problem it solves, what the buyer will
+be able to do after using it].
+suggested price: [your price idea].
+
+run my product validation agent. complete all 4 steps:
+
+step 1 — market demand assessment. is there genuine demand for this?
+          what evidence supports or undermines the demand? what are
+          buyers currently using instead? what gap does this fill?
+
+step 2 — audience fit check. is this the right product for my
+          specific audience? will buyers who follow me for [my topic]
+          want this? what might make them hesitate?
+
+step 3 — price justification. is [my price] appropriate for this
+          product? what would justify a higher price? what would
+          make buyers feel it is too expensive?
+
+step 4 — final verdict and recommendation. should i build this,
+          adjust it, or scrap it? if i should build it, what one
+          change would make it significantly more valuable?" style="--mod:#FB923C"><div class="ih"><span class="badge">Products</span><span class="num">11</span><span class="ttl"><b>Validate Any Digital Product Idea Before You Build It</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p11">My niche: [your topic area].
+My audience: [describe your specific target buyer in detail —
+who they are, what they currently struggle with, what they have
+already tried, what success looks like to them].
+My existing products (if any): [list them with prices].
+
+Product idea I want to validate:
+[Describe the product in 3 to 4 sentences — what it is, what format
+it takes, who it is for, what problem it solves, what the buyer will
+be able to do after using it].
+Suggested price: [your price idea].
+
+Run my product validation agent. Complete all 4 steps:
+
+Step 1 — Market demand assessment. Is there genuine demand for this?
+          What evidence supports or undermines the demand? What are
+          buyers currently using instead? What gap does this fill?
+
+Step 2 — Audience fit check. Is this the right product for my
+          specific audience? Will buyers who follow me for [my topic]
+          want this? What might make them hesitate?
+
+Step 3 — Price justification. Is [my price] appropriate for this
+          product? What would justify a higher price? What would
+          make buyers feel it is too expensive?
+
+Step 4 — Final verdict and recommendation. Should I build this,
+          adjust it, or scrap it? If I should build it, what one
+          change would make it significantly more valuable?</pre><button class="copy-btn" data-copy="p11" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Products" data-search="products build a complete digital product from idea to finished file my niche: [your topic area].
+my audience: [describe your target buyer].
+my brand tone: [describe how you write].
+
+product details:
+name: [your product name].
+format: [pdf guide / prompt pack / checklist / swipe file /
+template / workbook — choose one].
+topic: [what the product covers in one sentence].
+main outcome: [what the buyer will be able to do after using it].
+price: [your price].
+
+run my product building agent. complete all 5 steps in order:
+
+step 1 — create a complete outline for this product. include every
+          section with a title and a one-sentence description of
+          what it covers and what the reader gets from it.
+
+step 2 — write the complete content for every section.
+          practical and actionable throughout. no filler.
+          every section gives the reader something specific to do
+          or know immediately.
+
+step 3 — write an introduction for the product. welcome the buyer.
+          tell them what is inside. tell them how to use it.
+          tell them what they will be able to do when they finish.
+          under 200 words.
+
+step 4 — write a conclusion. summarise what they have learned.
+          encourage them to take the first action. point to any
+          next steps or related products. under 150 words.
+
+step 5 — write a complete product listing for a digital product
+          store. benefit-led title under 12 words. 2-sentence hook
+          opening with the problem. 5 benefit-driven bullets each
+          starting with an action verb. what you get section.
+          1-sentence cta." style="--mod:#FB923C"><div class="ih"><span class="badge">Products</span><span class="num">12</span><span class="ttl"><b>Build a Complete Digital Product From Idea to Finished File</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p12">My niche: [your topic area].
+My audience: [describe your target buyer].
+My brand tone: [describe how you write].
+
+Product details:
+Name: [your product name].
+Format: [PDF guide / prompt pack / checklist / swipe file /
+template / workbook — choose one].
+Topic: [what the product covers in one sentence].
+Main outcome: [what the buyer will be able to do after using it].
+Price: [your price].
+
+Run my product building agent. Complete all 5 steps in order:
+
+Step 1 — Create a complete outline for this product. Include every
+          section with a title and a one-sentence description of
+          what it covers and what the reader gets from it.
+
+Step 2 — Write the complete content for every section.
+          Practical and actionable throughout. No filler.
+          Every section gives the reader something specific to do
+          or know immediately.
+
+Step 3 — Write an introduction for the product. Welcome the buyer.
+          Tell them what is inside. Tell them how to use it.
+          Tell them what they will be able to do when they finish.
+          Under 200 words.
+
+Step 4 — Write a conclusion. Summarise what they have learned.
+          Encourage them to take the first action. Point to any
+          next steps or related products. Under 150 words.
+
+Step 5 — Write a complete product listing for a digital product
+          store. Benefit-led title under 12 words. 2-sentence hook
+          opening with the problem. 5 benefit-driven bullets each
+          starting with an action verb. What you get section.
+          1-sentence CTA.</pre><button class="copy-btn" data-copy="p12" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Products" data-search="products build a complete prompt pack product in one session my niche: [your topic area].
+my audience: [describe your target buyer — who they are and what
+they use ai tools for in their business or life].
+my brand tone: [describe how you write].
+
+prompt pack details:
+topic: [what the prompt pack covers — e.g. content creation,
+email marketing, social media, business planning, customer
+research, product development].
+number of prompts: [how many prompts you want — e.g. 25, 50, 100].
+format of each prompt: [complete agent sequence / single-use prompt /
+fill-in-the-bracket template — choose one].
+
+run my prompt pack builder agent. complete all 4 steps:
+
+step 1 — create a complete table of contents for the prompt pack.
+          organise the prompts into 5 categories with a clear name
+          for each category. list every prompt title under its
+          category.
+
+step 2 — write every prompt in full. each prompt must be self-
+          contained — the user fills in the brackets and pastes
+          the whole thing into claude. no setup required.
+          every bracket is clearly labelled.
+
+step 3 — write a cover page for the prompt pack. title. one-
+          paragraph description. how to use it. a note on
+          customising the prompts for specific niches.
+
+step 4 — write a complete product listing for a digital product
+          store. include the title, hook, 5 benefit bullets,
+          what is included, and a cta." style="--mod:#FB923C"><div class="ih"><span class="badge">Products</span><span class="num">13</span><span class="ttl"><b>Build a Complete Prompt Pack Product in One Session</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p13">My niche: [your topic area].
+My audience: [describe your target buyer — who they are and what
+they use AI tools for in their business or life].
+My brand tone: [describe how you write].
+
+Prompt pack details:
+Topic: [what the prompt pack covers — e.g. content creation,
+email marketing, social media, business planning, customer
+research, product development].
+Number of prompts: [how many prompts you want — e.g. 25, 50, 100].
+Format of each prompt: [complete agent sequence / single-use prompt /
+fill-in-the-bracket template — choose one].
+
+Run my prompt pack builder agent. Complete all 4 steps:
+
+Step 1 — Create a complete table of contents for the prompt pack.
+          Organise the prompts into 5 categories with a clear name
+          for each category. List every prompt title under its
+          category.
+
+Step 2 — Write every prompt in full. Each prompt must be self-
+          contained — the user fills in the brackets and pastes
+          the whole thing into Claude. No setup required.
+          Every bracket is clearly labelled.
+
+Step 3 — Write a cover page for the prompt pack. Title. One-
+          paragraph description. How to use it. A note on
+          customising the prompts for specific niches.
+
+Step 4 — Write a complete product listing for a digital product
+          store. Include the title, hook, 5 benefit bullets,
+          what is included, and a CTA.</pre><button class="copy-btn" data-copy="p13" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Products" data-search="products generate 20 product name options for any digital product my niche: [your topic area].
+my audience: [describe your target buyer].
+
+product details:
+what it is: [describe the product in one sentence].
+what format: [pdf / prompt pack / course / template / checklist].
+main outcome: [what the buyer achieves after using it].
+price range: [$17 to $27 / $37 to $47 / $97+].
+
+run my product naming agent. complete all 4 steps:
+
+step 1 — generate 20 product name options. use these 5 naming
+          styles — 4 names per style:
+          style 1 — outcome-led (the result first)
+          style 2 — audience-specific (who it is for in the name)
+          style 3 — number-led (a specific number in the name)
+          style 4 — action-led (starts with a verb)
+          style 5 — descriptive (describes exactly what it is)
+
+step 2 — from the 20 options select the top 5 and explain
+          why each one would work for my specific audience.
+          consider memorability, clarity, and appeal to buyers.
+
+step 3 — for the top 3 names write a complete product tagline.
+          under 10 words. describes the main outcome or benefit.
+
+step 4 — recommend the single best name and explain why it
+          is the strongest choice for my niche and price point." style="--mod:#FB923C"><div class="ih"><span class="badge">Products</span><span class="num">14</span><span class="ttl"><b>Generate 20 Product Name Options for Any Digital Product</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p14">My niche: [your topic area].
+My audience: [describe your target buyer].
+
+Product details:
+What it is: [describe the product in one sentence].
+What format: [PDF / prompt pack / course / template / checklist].
+Main outcome: [what the buyer achieves after using it].
+Price range: [$17 to $27 / $37 to $47 / $97+].
+
+Run my product naming agent. Complete all 4 steps:
+
+Step 1 — Generate 20 product name options. Use these 5 naming
+          styles — 4 names per style:
+          Style 1 — Outcome-led (the result first)
+          Style 2 — Audience-specific (who it is for in the name)
+          Style 3 — Number-led (a specific number in the name)
+          Style 4 — Action-led (starts with a verb)
+          Style 5 — Descriptive (describes exactly what it is)
+
+Step 2 — From the 20 options select the top 5 and explain
+          why each one would work for my specific audience.
+          Consider memorability, clarity, and appeal to buyers.
+
+Step 3 — For the top 3 names write a complete product tagline.
+          Under 10 words. Describes the main outcome or benefit.
+
+Step 4 — Recommend the single best name and explain why it
+          is the strongest choice for my niche and price point.</pre><button class="copy-btn" data-copy="p14" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Products" data-search="products set the right price for any digital product my niche: [your topic area].
+my audience: [describe your target buyer — their income level,
+what they spend on similar products, and how price-sensitive they are].
+my existing products (if any): [list them with prices].
+
+product i want to price:
+name: [product name].
+what it is: [describe it in one sentence].
+format: [pdf / prompt pack / course / template / checklist].
+how long it took to create: [hours or days].
+the specific outcome it delivers: [what the buyer can do after using it].
+competitor or similar products i am aware of: [list any you know of
+and their prices — or write none if you are not sure].
+
+run my pricing strategy agent. complete all 4 steps:
+
+step 1 — recommend a price range for this product based on the
+          format, outcome, audience, and market context.
+          give me a low, standard, and premium price option
+          with a rationale for each.
+
+step 2 — identify the price that will generate the highest
+          total revenue — not necessarily the highest price
+          per unit. consider conversion rate at each price point.
+
+step 3 — tell me how to position this product within my existing
+          product suite. where does it sit in my product ladder?
+          what should a buyer purchase before and after this?
+
+step 4 — write a price justification paragraph i can include
+          in the product listing. explain why this product is
+          worth the price without sounding defensive." style="--mod:#FB923C"><div class="ih"><span class="badge">Products</span><span class="num">15</span><span class="ttl"><b>Set the Right Price for Any Digital Product</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p15">My niche: [your topic area].
+My audience: [describe your target buyer — their income level,
+what they spend on similar products, and how price-sensitive they are].
+My existing products (if any): [list them with prices].
+
+Product I want to price:
+Name: [product name].
+What it is: [describe it in one sentence].
+Format: [PDF / prompt pack / course / template / checklist].
+How long it took to create: [hours or days].
+The specific outcome it delivers: [what the buyer can do after using it].
+Competitor or similar products I am aware of: [list any you know of
+and their prices — or write none if you are not sure].
+
+Run my pricing strategy agent. Complete all 4 steps:
+
+Step 1 — Recommend a price range for this product based on the
+          format, outcome, audience, and market context.
+          Give me a low, standard, and premium price option
+          with a rationale for each.
+
+Step 2 — Identify the price that will generate the highest
+          total revenue — not necessarily the highest price
+          per unit. Consider conversion rate at each price point.
+
+Step 3 — Tell me how to position this product within my existing
+          product suite. Where does it sit in my product ladder?
+          What should a buyer purchase before and after this?
+
+Step 4 — Write a price justification paragraph I can include
+          in the product listing. Explain why this product is
+          worth the price without sounding defensive.</pre><button class="copy-btn" data-copy="p15" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Products" data-search="products design a high-value product bundle in one session my niche: [your topic area].
+my audience: [describe your target buyer].
+
+products i currently have available to bundle:
+[list every product you have — name, format, and normal price.
+include freebies, paid products, and anything else you could
+include in a bundle.]
+
+bundle goal: [what do you want to achieve with this bundle —
+e.g. clear existing inventory, attract new buyers, increase
+average order value, create a flagship offer].
+bundle price target: [your ideal bundle price].
+
+run my bundle design agent. complete all 4 steps:
+
+step 1 — recommend the best combination of products to bundle
+          based on my goal. explain why this combination makes
+          sense for my audience. what is the logical journey
+          these products take the buyer on?
+
+step 2 — create a compelling bundle name and tagline.
+          the name should communicate the overall outcome.
+          the tagline should describe what is inside in one line.
+
+step 3 — write a complete bundle product listing.
+          benefit-led headline. 2-sentence hook. what is included
+          (list every product with a one-line description).
+          total value versus bundle price. 5 benefit bullets.
+          cta.
+
+step 4 — write the launch announcement for this bundle.
+          a complete social post introducing the bundle —
+          why you created it, what is inside, the price,
+          and the cta. under 200 words." style="--mod:#FB923C"><div class="ih"><span class="badge">Products</span><span class="num">16</span><span class="ttl"><b>Design a High-Value Product Bundle in One Session</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p16">My niche: [your topic area].
+My audience: [describe your target buyer].
+
+Products I currently have available to bundle:
+[List every product you have — name, format, and normal price.
+Include freebies, paid products, and anything else you could
+include in a bundle.]
+
+Bundle goal: [what do you want to achieve with this bundle —
+e.g. clear existing inventory, attract new buyers, increase
+average order value, create a flagship offer].
+Bundle price target: [your ideal bundle price].
+
+Run my bundle design agent. Complete all 4 steps:
+
+Step 1 — Recommend the best combination of products to bundle
+          based on my goal. Explain why this combination makes
+          sense for my audience. What is the logical journey
+          these products take the buyer on?
+
+Step 2 — Create a compelling bundle name and tagline.
+          The name should communicate the overall outcome.
+          The tagline should describe what is inside in one line.
+
+Step 3 — Write a complete bundle product listing.
+          Benefit-led headline. 2-sentence hook. What is included
+          (list every product with a one-line description).
+          Total value versus bundle price. 5 benefit bullets.
+          CTA.
+
+Step 4 — Write the launch announcement for this bundle.
+          A complete social post introducing the bundle —
+          why you created it, what is inside, the price,
+          and the CTA. Under 200 words.</pre><button class="copy-btn" data-copy="p16" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Products" data-search="products build a complete pre-launch checklist for any digital product my niche: [your topic area].
+my audience: [describe your target buyer].
+
+product i am launching:
+name: [product name].
+format: [pdf / prompt pack / course / template / checklist].
+price: [your price].
+platform: [where you are selling it — e.g. beacons, stan store,
+gumroad, your own website, skool].
+launch date: [when you plan to launch].
+
+run my launch preparation agent. complete all 4 steps:
+
+step 1 — create a complete pre-launch checklist with every task
+          i need to complete before launch day. organise by
+          category: product, listing, platform setup, content,
+          email, and launch day preparation.
+
+step 2 — write my launch day action plan. what to do in the
+          first hour, the first morning, and throughout the day.
+          specific actions not vague intentions.
+
+step 3 — write a post-launch checklist for the 48 hours after
+          launch. what to monitor, what to respond to, and what
+          to do to maintain momentum after the initial launch.
+
+step 4 — identify the 3 most common reasons digital product
+          launches fail and tell me specifically how to avoid
+          each one in my launch." style="--mod:#FB923C"><div class="ih"><span class="badge">Products</span><span class="num">17</span><span class="ttl"><b>Build a Complete Pre-Launch Checklist for Any Digital Product</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p17">My niche: [your topic area].
+My audience: [describe your target buyer].
+
+Product I am launching:
+Name: [product name].
+Format: [PDF / prompt pack / course / template / checklist].
+Price: [your price].
+Platform: [where you are selling it — e.g. Beacons, Stan Store,
+Gumroad, your own website, Skool].
+Launch date: [when you plan to launch].
+
+Run my launch preparation agent. Complete all 4 steps:
+
+Step 1 — Create a complete pre-launch checklist with every task
+          I need to complete before launch day. Organise by
+          category: product, listing, platform setup, content,
+          email, and launch day preparation.
+
+Step 2 — Write my launch day action plan. What to do in the
+          first hour, the first morning, and throughout the day.
+          Specific actions not vague intentions.
+
+Step 3 — Write a post-launch checklist for the 48 hours after
+          launch. What to monitor, what to respond to, and what
+          to do to maintain momentum after the initial launch.
+
+Step 4 — Identify the 3 most common reasons digital product
+          launches fail and tell me specifically how to avoid
+          each one in my launch.</pre><button class="copy-btn" data-copy="p17" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Products" data-search="products write every product description you need in one session my niche: [your topic area].
+my audience: [describe your target buyer].
+my brand tone: [describe how you write].
+
+product: [name].
+what it is: [describe in one sentence].
+what it delivers: [the specific outcome the buyer gets].
+format: [pdf / prompt pack / course / template / checklist].
+price: [your price].
+
+run my product description agent. write all 6 versions below
+in full. each version is for a different platform or context:
+
+version 1 — long listing (200 words, for your main product page)
+version 2 — short listing (50 words, for a summary or preview)
+version 3 — social media caption (under 150 words, with hook and cta)
+version 4 — email announcement (subject line + 150-word body + cta)
+version 5 — order bump description (under 80 words, highly recommended
+            format, for checkout page)
+version 6 — dm pitch (under 60 words, personal and warm, for direct
+            outreach to warm contacts)" style="--mod:#FB923C"><div class="ih"><span class="badge">Products</span><span class="num">18</span><span class="ttl"><b>Write Every Product Description You Need in One Session</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p18">My niche: [your topic area].
+My audience: [describe your target buyer].
+My brand tone: [describe how you write].
+
+Product: [name].
+What it is: [describe in one sentence].
+What it delivers: [the specific outcome the buyer gets].
+Format: [PDF / prompt pack / course / template / checklist].
+Price: [your price].
+
+Run my product description agent. Write all 6 versions below
+in full. Each version is for a different platform or context:
+
+Version 1 — Long listing (200 words, for your main product page)
+Version 2 — Short listing (50 words, for a summary or preview)
+Version 3 — Social media caption (under 150 words, with hook and CTA)
+Version 4 — Email announcement (subject line + 150-word body + CTA)
+Version 5 — Order bump description (under 80 words, highly recommended
+            format, for checkout page)
+Version 6 — DM pitch (under 60 words, personal and warm, for direct
+            outreach to warm contacts)</pre><button class="copy-btn" data-copy="p18" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Products" data-search="products collect, write, and use testimonials effectively my niche: [your topic area].
+my audience: [describe your buyers].
+my brand tone: [describe how you write].
+
+product i want testimonials for:
+name: [product name].
+what it delivers: [specific outcome].
+price: [price].
+current buyers: [how many buyers do you have — approximate].
+
+run my testimonial agent. complete all 4 steps:
+
+step 1 — write 3 different testimonial request messages to send
+          to buyers. each one asks a different specific question
+          designed to produce a useful detailed testimonial:
+          message a — focuses on the before and after
+          message b — focuses on a specific result or win
+          message c — focuses on who they would recommend this to
+          each under 80 words. warm and easy to say yes to.
+
+step 2 — write 3 example testimonials that show buyers what a
+          useful testimonial looks like. these are templates they
+          can use as a starting point. make them specific and
+          credible — not generic praise.
+
+step 3 — write 3 social proof posts using fictional but realistic
+          testimonial data. each post shares a buyer result and
+          links it back to the product. under 150 words each.
+
+step 4 — write the social proof section for my product listing.
+          include 3 short testimonial quotes and a results summary.
+          under 100 words total." style="--mod:#FB923C"><div class="ih"><span class="badge">Products</span><span class="num">19</span><span class="ttl"><b>Collect, Write, and Use Testimonials Effectively</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p19">My niche: [your topic area].
+My audience: [describe your buyers].
+My brand tone: [describe how you write].
+
+Product I want testimonials for:
+Name: [product name].
+What it delivers: [specific outcome].
+Price: [price].
+Current buyers: [how many buyers do you have — approximate].
+
+Run my testimonial agent. Complete all 4 steps:
+
+Step 1 — Write 3 different testimonial request messages to send
+          to buyers. Each one asks a different specific question
+          designed to produce a useful detailed testimonial:
+          Message A — focuses on the before and after
+          Message B — focuses on a specific result or win
+          Message C — focuses on who they would recommend this to
+          Each under 80 words. Warm and easy to say yes to.
+
+Step 2 — Write 3 example testimonials that show buyers what a
+          useful testimonial looks like. These are templates they
+          can use as a starting point. Make them specific and
+          credible — not generic praise.
+
+Step 3 — Write 3 social proof posts using fictional but realistic
+          testimonial data. Each post shares a buyer result and
+          links it back to the product. Under 150 words each.
+
+Step 4 — Write the social proof section for my product listing.
+          Include 3 short testimonial quotes and a results summary.
+          Under 100 words total.</pre><button class="copy-btn" data-copy="p19" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Products" data-search="products write scripts to sell related products to existing buyers my niche: [your topic area].
+my audience: [describe your buyers].
+my brand tone: [describe how you write].
+
+product the buyer already purchased:
+name: [the product they bought].
+what it delivers: [what they already got].
+
+product i want to upsell or cross-sell:
+name: [the next product].
+what it delivers: [what this one adds].
+price: [price].
+why it is the logical next step: [explain the connection].
+
+run my upsell script agent. write all 4 versions in full:
+
+version 1 — post-purchase email upsell (send immediately after
+            first purchase, under 150 words, warm and relevant)
+version 2 — follow-up email (send 3 days after purchase when they
+            have had time to use the first product, under 150 words)
+version 3 — dm script for warm buyers (personal outreach, under
+            80 words, references what they bought)
+version 4 — social post targeting existing buyers (references
+            the product they already have, introduces the next
+            step, under 150 words)" style="--mod:#FB923C"><div class="ih"><span class="badge">Products</span><span class="num">20</span><span class="ttl"><b>Write Scripts to Sell Related Products to Existing Buyers</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p20">My niche: [your topic area].
+My audience: [describe your buyers].
+My brand tone: [describe how you write].
+
+Product the buyer already purchased:
+Name: [the product they bought].
+What it delivers: [what they already got].
+
+Product I want to upsell or cross-sell:
+Name: [the next product].
+What it delivers: [what this one adds].
+Price: [price].
+Why it is the logical next step: [explain the connection].
+
+Run my upsell script agent. Write all 4 versions in full:
+
+Version 1 — Post-purchase email upsell (send immediately after
+            first purchase, under 150 words, warm and relevant)
+Version 2 — Follow-up email (send 3 days after purchase when they
+            have had time to use the first product, under 150 words)
+Version 3 — DM script for warm buyers (personal outreach, under
+            80 words, references what they bought)
+Version 4 — Social post targeting existing buyers (references
+            the product they already have, introduces the next
+            step, under 150 words)</pre><button class="copy-btn" data-copy="p20" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Sales" data-search="sales write all 3 launch posts for any product in one session my niche: [your topic area].
+my audience: [describe your target buyer].
+my brand tone: [describe how you write — e.g. warm, direct,
+no hype, conversational, british spelling].
+
+product: [name].
+what it does: [one sentence — the specific result it delivers].
+who it is for: [your specific target buyer].
+the main problem it solves: [describe the specific frustration].
+price: [price].
+
+run my launch sequence agent. write all 3 posts in full:
+
+post 1 — the problem post (publish day 1):
+open with a specific moment when this problem happens —
+not a general statement. describe both the practical frustration
+and the emotional experience. end with a question that invites
+the reader to self-identify. no product mention. no link.
+under 150 words.
+
+post 2 — the solution post (publish day 2):
+share one specific practical tip that genuinely helps with this
+problem. go deep on one tip rather than listing many.
+end with a single sentence suggesting something relevant is coming.
+no product mention. no link. under 150 words.
+
+post 3 — the offer post (publish day 3):
+reference the problem from post 1 in the opening line.
+present the product as the solution in 2 sentences.
+list 3 specific benefits. state the price clearly.
+end with a direct cta. include [your link] placeholder.
+under 150 words." style="--mod:#F472B6"><div class="ih"><span class="badge">Sales</span><span class="num">21</span><span class="ttl"><b>Write All 3 Launch Posts for Any Product in One Session</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p21">My niche: [your topic area].
+My audience: [describe your target buyer].
+My brand tone: [describe how you write — e.g. warm, direct,
+no hype, conversational, British spelling].
+
+Product: [name].
+What it does: [one sentence — the specific result it delivers].
+Who it is for: [your specific target buyer].
+The main problem it solves: [describe the specific frustration].
+Price: [price].
+
+Run my launch sequence agent. Write all 3 posts in full:
+
+Post 1 — The Problem Post (publish Day 1):
+Open with a specific moment when this problem happens —
+not a general statement. Describe both the practical frustration
+and the emotional experience. End with a question that invites
+the reader to self-identify. No product mention. No link.
+Under 150 words.
+
+Post 2 — The Solution Post (publish Day 2):
+Share one specific practical tip that genuinely helps with this
+problem. Go deep on one tip rather than listing many.
+End with a single sentence suggesting something relevant is coming.
+No product mention. No link. Under 150 words.
+
+Post 3 — The Offer Post (publish Day 3):
+Reference the problem from Post 1 in the opening line.
+Present the product as the solution in 2 sentences.
+List 3 specific benefits. State the price clearly.
+End with a direct CTA. Include [YOUR LINK] placeholder.
+Under 150 words.</pre><button class="copy-btn" data-copy="p21" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Sales" data-search="sales write 10 personalised dm scripts for any product my niche: [your topic area].
+my audience: [describe your typical buyer].
+my brand tone: [describe how you write].
+
+product: [name].
+what it does: [one sentence — the specific result].
+who benefits most: [describe the ideal buyer in detail].
+price: [price].
+
+write 10 personalised dm scripts for reaching out to warm contacts
+about this product. each script must:
+— be under 80 words
+— start with [personal reference] — a placeholder where i add
+  a specific detail about this particular person (e.g. you
+  mentioned last week that you struggle with x — this solves that)
+— describe what the product does in one sentence
+— end with [your link]
+— sound like a text from a friend — not a sales pitch
+
+write all 10 scripts as different approaches:
+scripts 1 to 3 — for people who have mentioned this problem before
+scripts 4 to 6 — for past buyers of related products
+scripts 7 to 9 — for people who engage with your content regularly
+script 10 — for a follow-up when someone did not reply to the first dm" style="--mod:#F472B6"><div class="ih"><span class="badge">Sales</span><span class="num">22</span><span class="ttl"><b>Write 10 Personalised DM Scripts for Any Product</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p22">My niche: [your topic area].
+My audience: [describe your typical buyer].
+My brand tone: [describe how you write].
+
+Product: [name].
+What it does: [one sentence — the specific result].
+Who benefits most: [describe the ideal buyer in detail].
+Price: [price].
+
+Write 10 personalised DM scripts for reaching out to warm contacts
+about this product. Each script must:
+— Be under 80 words
+— Start with [PERSONAL REFERENCE] — a placeholder where I add
+  a specific detail about this particular person (e.g. you
+  mentioned last week that you struggle with X — this solves that)
+— Describe what the product does in one sentence
+— End with [YOUR LINK]
+— Sound like a text from a friend — not a sales pitch
+
+Write all 10 scripts as different approaches:
+Scripts 1 to 3 — for people who have mentioned this problem before
+Scripts 4 to 6 — for past buyers of related products
+Scripts 7 to 9 — for people who engage with your content regularly
+Script 10 — for a follow-up when someone did not reply to the first DM</pre><button class="copy-btn" data-copy="p22" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Sales" data-search="sales identify and overcome every buying objection my product: [name].
+what it delivers: [specific outcome].
+price: [price].
+my audience: [describe your typical buyer — who they are,
+what they want, and what makes them hesitant to spend money].
+
+run my objection handling agent. complete all 4 steps:
+
+step 1 — list the 10 most common reasons someone in my audience
+          would hesitate before buying this product. be specific
+          and honest — include price concerns, trust concerns,
+          timing concerns, relevance doubts, and past bad experiences.
+
+step 2 — for each objection write one direct honest sentence that
+          addresses it without sounding defensive or dismissive.
+
+step 3 — write a faq section for my product listing using the
+          top 6 objections formatted as questions with answers.
+          under 50 words per answer.
+
+step 4 — write a section for my product listing or sales post
+          called who this is not for. list 3 specific types of
+          people for whom this product would not be a good fit.
+          being honest about who to exclude builds trust with
+          everyone else." style="--mod:#F472B6"><div class="ih"><span class="badge">Sales</span><span class="num">23</span><span class="ttl"><b>Identify and Overcome Every Buying Objection</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p23">My product: [name].
+What it delivers: [specific outcome].
+Price: [price].
+My audience: [describe your typical buyer — who they are,
+what they want, and what makes them hesitant to spend money].
+
+Run my objection handling agent. Complete all 4 steps:
+
+Step 1 — List the 10 most common reasons someone in my audience
+          would hesitate before buying this product. Be specific
+          and honest — include price concerns, trust concerns,
+          timing concerns, relevance doubts, and past bad experiences.
+
+Step 2 — For each objection write one direct honest sentence that
+          addresses it without sounding defensive or dismissive.
+
+Step 3 — Write a FAQ section for my product listing using the
+          top 6 objections formatted as questions with answers.
+          Under 50 words per answer.
+
+Step 4 — Write a section for my product listing or sales post
+          called Who This Is Not For. List 3 specific types of
+          people for whom this product would not be a good fit.
+          Being honest about who to exclude builds trust with
+          everyone else.</pre><button class="copy-btn" data-copy="p23" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Sales" data-search="sales write a complete promotional email for any product my niche: [your topic area].
+my audience (email subscribers): [describe who is on your list].
+my brand tone: [describe how you write].
+
+product: [name].
+what it delivers: [specific outcome].
+price: [price].
+any deadline or urgency: [is there a price increase, a limited
+quantity, or a deadline — or write none if evergreen].
+
+write a complete promotional email:
+
+subject line — write 5 options:
+option 1 — curiosity hook
+option 2 — benefit-led
+option 3 — story opening
+option 4 — question
+option 5 — number-led
+
+email body:
+opening — start with a story or observation, not the product
+bridge — connect the story to the problem the product solves
+product introduction — introduce it naturally, one sentence
+what is inside — 3 to 5 specific things they get
+cta — clear direct link with one sentence of urgency or reason
+closing — warm, personal, in my brand tone
+
+under 350 words total for the body. no salesy language.
+no hype words. write as if to one person." style="--mod:#F472B6"><div class="ih"><span class="badge">Sales</span><span class="num">24</span><span class="ttl"><b>Write a Complete Promotional Email for Any Product</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p24">My niche: [your topic area].
+My audience (email subscribers): [describe who is on your list].
+My brand tone: [describe how you write].
+
+Product: [name].
+What it delivers: [specific outcome].
+Price: [price].
+Any deadline or urgency: [is there a price increase, a limited
+quantity, or a deadline — or write none if evergreen].
+
+Write a complete promotional email:
+
+Subject line — write 5 options:
+Option 1 — curiosity hook
+Option 2 — benefit-led
+Option 3 — story opening
+Option 4 — question
+Option 5 — number-led
+
+Email body:
+Opening — start with a story or observation, not the product
+Bridge — connect the story to the problem the product solves
+Product introduction — introduce it naturally, one sentence
+What is inside — 3 to 5 specific things they get
+CTA — clear direct link with one sentence of urgency or reason
+Closing — warm, personal, in my brand tone
+
+Under 350 words total for the body. No salesy language.
+No hype words. Write as if to one person.</pre><button class="copy-btn" data-copy="p24" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Sales" data-search="sales write a complete sales page for any digital product my niche: [your topic area].
+my audience: [describe your target buyer in detail — who they are,
+what they want, what they currently struggle with, what they have
+tried before, and what success looks like to them].
+my brand tone: [describe how you write].
+
+product: [name].
+format: [pdf / prompt pack / course / template].
+what it delivers: [the specific outcome].
+what is included: [list every component].
+price: [price].
+bonus (if any): [list any bonuses included].
+
+write a complete sales page with all 8 sections below:
+
+section 1 — headline (benefit-led, under 12 words)
+section 2 — subheadline (expand on the headline, under 20 words)
+section 3 — opening hook (the problem in 2 paragraphs — specific,
+            emotional, relatable — no product mention yet)
+section 4 — agitation (why the common solutions fail — 1 paragraph)
+section 5 — solution introduction (introduce the product as the
+            answer — what it is and what it does, 2 paragraphs)
+section 6 — what is inside (list every component with a one-sentence
+            description of what it does and why it matters)
+section 7 — who this is for (3 to 5 specific descriptions of ideal
+            buyers — written as i sentences so buyers self-identify)
+section 8 — cta section (restate the price, list what they get,
+            one final sentence of motivation, the buy button text)" style="--mod:#F472B6"><div class="ih"><span class="badge">Sales</span><span class="num">25</span><span class="ttl"><b>Write a Complete Sales Page for Any Digital Product</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p25">My niche: [your topic area].
+My audience: [describe your target buyer in detail — who they are,
+what they want, what they currently struggle with, what they have
+tried before, and what success looks like to them].
+My brand tone: [describe how you write].
+
+Product: [name].
+Format: [PDF / prompt pack / course / template].
+What it delivers: [the specific outcome].
+What is included: [list every component].
+Price: [price].
+Bonus (if any): [list any bonuses included].
+
+Write a complete sales page with all 8 sections below:
+
+Section 1 — Headline (benefit-led, under 12 words)
+Section 2 — Subheadline (expand on the headline, under 20 words)
+Section 3 — Opening hook (the problem in 2 paragraphs — specific,
+            emotional, relatable — no product mention yet)
+Section 4 — Agitation (why the common solutions fail — 1 paragraph)
+Section 5 — Solution introduction (introduce the product as the
+            answer — what it is and what it does, 2 paragraphs)
+Section 6 — What is inside (list every component with a one-sentence
+            description of what it does and why it matters)
+Section 7 — Who this is for (3 to 5 specific descriptions of ideal
+            buyers — written as I sentences so buyers self-identify)
+Section 8 — CTA section (restate the price, list what they get,
+            one final sentence of motivation, the buy button text)</pre><button class="copy-btn" data-copy="p25" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Sales" data-search="sales write a complete 48-hour flash sale campaign my niche: [your topic area].
+my audience: [describe your buyers and subscribers].
+my brand tone: [describe how you write].
+
+product or bundle on sale: [name and what it includes].
+normal price: [regular price].
+flash sale price: [discounted price].
+sale duration: [how long — e.g. 48 hours, 24 hours].
+reason for sale: [why are you running this sale — e.g. anniversary,
+thank you to subscribers, clearing inventory, celebrating a milestone].
+
+write all 5 campaign pieces in full:
+
+piece 1 — announcement email (subject line + body, under 250 words)
+piece 2 — announcement social post (under 150 words, link placeholder)
+piece 3 — mid-sale email (send halfway through, social proof focus,
+           under 200 words)
+piece 4 — last chance email (send 2 hours before deadline,
+           under 150 words, urgency without fake panic)
+piece 5 — last chance social post (under 100 words, deadline clear)
+
+for every piece include the subject line or first line as a hook,
+and end with a clear cta and [your link] placeholder." style="--mod:#F472B6"><div class="ih"><span class="badge">Sales</span><span class="num">26</span><span class="ttl"><b>Write a Complete 48-Hour Flash Sale Campaign</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p26">My niche: [your topic area].
+My audience: [describe your buyers and subscribers].
+My brand tone: [describe how you write].
+
+Product or bundle on sale: [name and what it includes].
+Normal price: [regular price].
+Flash sale price: [discounted price].
+Sale duration: [how long — e.g. 48 hours, 24 hours].
+Reason for sale: [why are you running this sale — e.g. anniversary,
+thank you to subscribers, clearing inventory, celebrating a milestone].
+
+Write all 5 campaign pieces in full:
+
+Piece 1 — Announcement email (subject line + body, under 250 words)
+Piece 2 — Announcement social post (under 150 words, link placeholder)
+Piece 3 — Mid-sale email (send halfway through, social proof focus,
+           under 200 words)
+Piece 4 — Last chance email (send 2 hours before deadline,
+           under 150 words, urgency without fake panic)
+Piece 5 — Last chance social post (under 100 words, deadline clear)
+
+For every piece include the subject line or first line as a hook,
+and end with a clear CTA and [YOUR LINK] placeholder.</pre><button class="copy-btn" data-copy="p26" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Sales" data-search="sales write launch posts for skool, facebook groups, and online communities my niche: [your topic area].
+my community audience: [describe who is in your community —
+their level, what they are working on, what they care about].
+my brand tone: [describe how you write].
+
+product: [name].
+what it delivers: [specific outcome].
+price: [price].
+
+write 4 community post versions in full:
+
+version 1 — soft launch post (announce without hard sell,
+            invite questions, personal and warm, under 200 words)
+version 2 — value post with soft mention (share a useful tip
+            related to the product, mention it at the end naturally,
+            under 200 words)
+version 3 — direct launch post (clear announcement, what it is,
+            who it is for, price, cta, under 150 words)
+version 4 — behind the scenes post (share the process of creating
+            this product, what you learned, why you built it,
+            introduce it at the end, under 200 words)
+
+for each version suggest the best day to post it and the type
+of community it works best in." style="--mod:#F472B6"><div class="ih"><span class="badge">Sales</span><span class="num">27</span><span class="ttl"><b>Write Launch Posts for Skool, Facebook Groups, and Online Communities</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p27">My niche: [your topic area].
+My community audience: [describe who is in your community —
+their level, what they are working on, what they care about].
+My brand tone: [describe how you write].
+
+Product: [name].
+What it delivers: [specific outcome].
+Price: [price].
+
+Write 4 community post versions in full:
+
+Version 1 — Soft launch post (announce without hard sell,
+            invite questions, personal and warm, under 200 words)
+Version 2 — Value post with soft mention (share a useful tip
+            related to the product, mention it at the end naturally,
+            under 200 words)
+Version 3 — Direct launch post (clear announcement, what it is,
+            who it is for, price, CTA, under 150 words)
+Version 4 — Behind the scenes post (share the process of creating
+            this product, what you learned, why you built it,
+            introduce it at the end, under 200 words)
+
+For each version suggest the best day to post it and the type
+of community it works best in.</pre><button class="copy-btn" data-copy="p27" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Sales" data-search="sales turn a buyer testimonial into 5 different social proof posts my niche: [your topic area].
+my brand tone: [describe how you write].
+
+product the testimonial is about: [name and what it delivers].
+price: [price].
+
+the testimonial i received:
+[paste the exact testimonial here — however long or short it is.
+if you have multiple, paste them all.]
+
+run my social proof agent. turn this testimonial into 5 posts:
+
+post 1 — direct quote post (feature the most powerful line from
+         the testimonial, add context around it, cta at end,
+         under 150 words)
+post 2 — results post (focus on the specific outcome the buyer
+         achieved, do not quote directly, tell the story of their
+         result, cta, under 150 words)
+post 3 — before and after post (reconstruct their journey —
+         where they were before and where they are now — cta,
+         under 200 words)
+post 4 — who this is for post (use the testimonial to describe
+         the ideal buyer — this worked for someone who was x and
+         wanted y — cta, under 150 words)
+post 5 — story post (tell the full story in narrative form,
+         first or third person, personal and specific, cta,
+         under 250 words)" style="--mod:#F472B6"><div class="ih"><span class="badge">Sales</span><span class="num">28</span><span class="ttl"><b>Turn a Buyer Testimonial Into 5 Different Social Proof Posts</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p28">My niche: [your topic area].
+My brand tone: [describe how you write].
+
+Product the testimonial is about: [name and what it delivers].
+Price: [price].
+
+The testimonial I received:
+[Paste the exact testimonial here — however long or short it is.
+If you have multiple, paste them all.]
+
+Run my social proof agent. Turn this testimonial into 5 posts:
+
+Post 1 — Direct quote post (feature the most powerful line from
+         the testimonial, add context around it, CTA at end,
+         under 150 words)
+Post 2 — Results post (focus on the specific outcome the buyer
+         achieved, do not quote directly, tell the story of their
+         result, CTA, under 150 words)
+Post 3 — Before and after post (reconstruct their journey —
+         where they were before and where they are now — CTA,
+         under 200 words)
+Post 4 — Who this is for post (use the testimonial to describe
+         the ideal buyer — this worked for someone who was X and
+         wanted Y — CTA, under 150 words)
+Post 5 — Story post (tell the full story in narrative form,
+         first or third person, personal and specific, CTA,
+         under 250 words)</pre><button class="copy-btn" data-copy="p28" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Sales" data-search="sales write everything you need for a complete checkout page my niche: [your topic area].
+my audience: [describe your buyers].
+my brand tone: [describe how you write].
+
+main product: [name].
+what it includes: [list everything].
+price: [price].
+
+order bump 1 (if any):
+name: [bump product name].
+what it adds: [one sentence].
+price: [bump price].
+
+order bump 2 (if any):
+name: [bump product name].
+what it adds: [one sentence].
+price: [bump price].
+
+write all 5 checkout page copy elements in full:
+
+element 1 — checkout headline (what they are getting, under 12 words)
+element 2 — checkout subheadline (what happens immediately after
+            purchase, under 20 words)
+element 3 — order bump 1 copy (highly recommended label, what it is,
+            why it is the obvious next step, what they miss without it,
+            under 80 words)
+element 4 — order bump 2 copy (same format as above, different angle,
+            under 80 words)
+element 5 — trust block (3 bullet points addressing the most common
+            hesitations at checkout — refund policy, delivery, access)" style="--mod:#F472B6"><div class="ih"><span class="badge">Sales</span><span class="num">29</span><span class="ttl"><b>Write Everything You Need for a Complete Checkout Page</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p29">My niche: [your topic area].
+My audience: [describe your buyers].
+My brand tone: [describe how you write].
+
+Main product: [name].
+What it includes: [list everything].
+Price: [price].
+
+Order bump 1 (if any):
+Name: [bump product name].
+What it adds: [one sentence].
+Price: [bump price].
+
+Order bump 2 (if any):
+Name: [bump product name].
+What it adds: [one sentence].
+Price: [bump price].
+
+Write all 5 checkout page copy elements in full:
+
+Element 1 — Checkout headline (what they are getting, under 12 words)
+Element 2 — Checkout subheadline (what happens immediately after
+            purchase, under 20 words)
+Element 3 — Order bump 1 copy (HIGHLY RECOMMENDED label, what it is,
+            why it is the obvious next step, what they miss without it,
+            under 80 words)
+Element 4 — Order bump 2 copy (same format as above, different angle,
+            under 80 words)
+Element 5 — Trust block (3 bullet points addressing the most common
+            hesitations at checkout — refund policy, delivery, access)</pre><button class="copy-btn" data-copy="p29" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Sales" data-search="sales design a simple evergreen sales system for any product my niche: [your topic area].
+my audience: [describe your buyers and email subscribers].
+my brand tone: [describe how you write].
+
+product: [name].
+what it delivers: [specific outcome].
+price: [price].
+
+run my evergreen sales system agent. design and write all 4 parts:
+
+part 1 — lead magnet to product connection
+          what free resource should i offer to attract buyers for
+          this specific product? design the lead magnet concept —
+          name, format, what it contains, and how it naturally
+          leads to the paid product.
+
+part 2 — welcome sequence (5 emails)
+          write a complete 5-email welcome sequence for new
+          subscribers who opted in for the lead magnet.
+          email 1 — deliver the lead magnet and set expectations
+          email 2 — add more value on the same topic (day 2)
+          email 3 — share a story or case study (day 3)
+          email 4 — introduce the product naturally (day 5)
+          email 5 — final soft pitch with urgency (day 7)
+
+part 3 — evergreen promotional email (send monthly)
+          one email to send to your whole list monthly to
+          keep this product selling. under 250 words.
+
+part 4 — product page seo description
+          a 100-word description optimised for search with
+          the main keywords a buyer would use to find this
+          type of product." style="--mod:#F472B6"><div class="ih"><span class="badge">Sales</span><span class="num">30</span><span class="ttl"><b>Design a Simple Evergreen Sales System for Any Product</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p30">My niche: [your topic area].
+My audience: [describe your buyers and email subscribers].
+My brand tone: [describe how you write].
+
+Product: [name].
+What it delivers: [specific outcome].
+Price: [price].
+
+Run my evergreen sales system agent. Design and write all 4 parts:
+
+Part 1 — Lead magnet to product connection
+          What free resource should I offer to attract buyers for
+          this specific product? Design the lead magnet concept —
+          name, format, what it contains, and how it naturally
+          leads to the paid product.
+
+Part 2 — Welcome sequence (5 emails)
+          Write a complete 5-email welcome sequence for new
+          subscribers who opted in for the lead magnet.
+          Email 1 — Deliver the lead magnet and set expectations
+          Email 2 — Add more value on the same topic (Day 2)
+          Email 3 — Share a story or case study (Day 3)
+          Email 4 — Introduce the product naturally (Day 5)
+          Email 5 — Final soft pitch with urgency (Day 7)
+
+Part 3 — Evergreen promotional email (send monthly)
+          One email to send to your whole list monthly to
+          keep this product selling. Under 250 words.
+
+Part 4 — Product page SEO description
+          A 100-word description optimised for search with
+          the main keywords a buyer would use to find this
+          type of product.</pre><button class="copy-btn" data-copy="p30" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Customer Service" data-search="customer service write a full faq document for any digital product my product: [name].
+what it is: [one sentence description].
+what it delivers: [specific outcome].
+who buys it: [describe your typical buyer].
+format: [pdf / prompt pack / course / template / html tool].
+how it is delivered: [download link / platform link / access code].
+price: [price].
+my brand tone: [warm, conversational, not corporate].
+
+write a complete faq document with 20 questions and answers.
+organise into 4 sections:
+
+section 1 — before purchase (5 questions)
+focus on: what is included, is this right for me, what results
+to expect, how it compares to alternatives, whether beginners
+can use it.
+
+section 2 — access and delivery (5 questions)
+focus on: how to access after purchase, what format the files
+are in, whether there is an expiry date, what to do if the
+link does not work, whether they can access on mobile.
+
+section 3 — using the product (5 questions)
+focus on: where to start, how long it takes, what to do if
+stuck, whether there is support, how to get the most from it.
+
+section 4 — refunds and policies (5 questions)
+focus on: refund policy, whether they can share with others,
+whether there are updates, what happens if they want to
+upgrade later, how to contact you.
+
+write every answer in my brand tone — clear, warm, and helpful.
+under 60 words per answer." style="--mod:#4ADE80"><div class="ih"><span class="badge">Customer Service</span><span class="num">31</span><span class="ttl"><b>Write a Full FAQ Document for Any Digital Product</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p31">My product: [name].
+What it is: [one sentence description].
+What it delivers: [specific outcome].
+Who buys it: [describe your typical buyer].
+Format: [PDF / prompt pack / course / template / HTML tool].
+How it is delivered: [download link / platform link / access code].
+Price: [price].
+My brand tone: [warm, conversational, not corporate].
+
+Write a complete FAQ document with 20 questions and answers.
+Organise into 4 sections:
+
+Section 1 — Before Purchase (5 questions)
+Focus on: what is included, is this right for me, what results
+to expect, how it compares to alternatives, whether beginners
+can use it.
+
+Section 2 — Access and Delivery (5 questions)
+Focus on: how to access after purchase, what format the files
+are in, whether there is an expiry date, what to do if the
+link does not work, whether they can access on mobile.
+
+Section 3 — Using the Product (5 questions)
+Focus on: where to start, how long it takes, what to do if
+stuck, whether there is support, how to get the most from it.
+
+Section 4 — Refunds and Policies (5 questions)
+Focus on: refund policy, whether they can share with others,
+whether there are updates, what happens if they want to
+upgrade later, how to contact you.
+
+Write every answer in my brand tone — clear, warm, and helpful.
+Under 60 words per answer.</pre><button class="copy-btn" data-copy="p31" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Customer Service" data-search="customer service write a complete post-purchase welcome sequence my product: [name].
+what it delivers: [specific outcome].
+how to access it: [describe exactly how buyers get to the product].
+my brand tone: [describe how you write].
+my audience: [describe your typical buyer].
+
+write a complete 4-message post-purchase welcome sequence:
+
+message 1 — immediate delivery email (send at purchase):
+subject line. warm opening. confirm their purchase.
+deliver the product or access instructions clearly.
+tell them exactly what to do first.
+set expectations for what they will experience.
+under 150 words.
+
+message 2 — day 1 follow-up (send 24 hours after purchase):
+check in. ask if they have started. share one tip for getting
+the most from the product in the first session.
+under 100 words.
+
+message 3 — day 3 support email (send 3 days after purchase):
+share a common challenge buyers face at this stage and how
+to get past it. offer to help if they are stuck.
+under 120 words.
+
+message 4 — day 7 testimonial request (send 7 days after purchase):
+ask for a testimonial. ask one specific question designed to
+produce a useful detailed response. make it easy to reply.
+under 80 words." style="--mod:#4ADE80"><div class="ih"><span class="badge">Customer Service</span><span class="num">32</span><span class="ttl"><b>Write a Complete Post-Purchase Welcome Sequence</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p32">My product: [name].
+What it delivers: [specific outcome].
+How to access it: [describe exactly how buyers get to the product].
+My brand tone: [describe how you write].
+My audience: [describe your typical buyer].
+
+Write a complete 4-message post-purchase welcome sequence:
+
+Message 1 — Immediate delivery email (send at purchase):
+Subject line. Warm opening. Confirm their purchase.
+Deliver the product or access instructions clearly.
+Tell them exactly what to do first.
+Set expectations for what they will experience.
+Under 150 words.
+
+Message 2 — Day 1 follow-up (send 24 hours after purchase):
+Check in. Ask if they have started. Share one tip for getting
+the most from the product in the first session.
+Under 100 words.
+
+Message 3 — Day 3 support email (send 3 days after purchase):
+Share a common challenge buyers face at this stage and how
+to get past it. Offer to help if they are stuck.
+Under 120 words.
+
+Message 4 — Day 7 testimonial request (send 7 days after purchase):
+Ask for a testimonial. Ask one specific question designed to
+produce a useful detailed response. Make it easy to reply.
+Under 80 words.</pre><button class="copy-btn" data-copy="p32" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Customer Service" data-search="customer service write professional responses to every type of refund request my product: [name].
+my refund policy: [describe your policy — e.g. no refunds on
+digital products / 7-day money back guarantee / case by case].
+my brand tone: [warm, professional, not defensive].
+
+write complete response templates for these 5 refund scenarios:
+
+scenario 1 — buyer asks for refund immediately after purchase
+(likely buyer&#x27;s remorse, has not used the product yet)
+
+scenario 2 — buyer asks for refund because the product did not
+work as expected (give specific reasons)
+
+scenario 3 — buyer asks for refund but your policy does not
+allow it (digital product, no refunds policy)
+
+scenario 4 — buyer asks for refund because they did not have
+time to use it (valid point, unclear situation)
+
+scenario 5 — buyer is unhappy and leaving a negative comment
+publicly (requires public and private response)
+
+for each scenario write:
+— the email response (under 150 words, professional and warm)
+— what to offer instead of a refund if your policy does not
+  allow it (alternative resolution)
+— what to learn from this to prevent it happening again" style="--mod:#4ADE80"><div class="ih"><span class="badge">Customer Service</span><span class="num">33</span><span class="ttl"><b>Write Professional Responses to Every Type of Refund Request</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p33">My product: [name].
+My refund policy: [describe your policy — e.g. no refunds on
+digital products / 7-day money back guarantee / case by case].
+My brand tone: [warm, professional, not defensive].
+
+Write complete response templates for these 5 refund scenarios:
+
+Scenario 1 — Buyer asks for refund immediately after purchase
+(likely buyer&#x27;s remorse, has not used the product yet)
+
+Scenario 2 — Buyer asks for refund because the product did not
+work as expected (give specific reasons)
+
+Scenario 3 — Buyer asks for refund but your policy does not
+allow it (digital product, no refunds policy)
+
+Scenario 4 — Buyer asks for refund because they did not have
+time to use it (valid point, unclear situation)
+
+Scenario 5 — Buyer is unhappy and leaving a negative comment
+publicly (requires public and private response)
+
+For each scenario write:
+— The email response (under 150 words, professional and warm)
+— What to offer instead of a refund if your policy does not
+  allow it (alternative resolution)
+— What to learn from this to prevent it happening again</pre><button class="copy-btn" data-copy="p33" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Customer Service" data-search="customer service build a complete library of support response templates my product: [name].
+what it delivers: [specific outcome].
+how it is delivered: [access method].
+my brand tone: [warm, helpful, not corporate].
+
+write complete response templates for these 10 common support queries.
+each response under 80 words. warm and clear:
+
+query 1 — i cannot find the download link
+query 2 — the file will not open
+query 3 — i have not received my purchase confirmation email
+query 4 — i purchased but cannot access the product
+query 5 — i am not sure where to start with this product
+query 6 — can i share this with a friend or colleague
+query 7 — will there be updates and will i get them
+query 8 — i am not technical — can i still use this
+query 9 — i want to leave a review or testimonial — how
+query 10 — i have a question not covered in the faq
+
+after each template write a one-sentence note on the most
+common root cause of this query and one thing i could change
+in my product or delivery to prevent it." style="--mod:#4ADE80"><div class="ih"><span class="badge">Customer Service</span><span class="num">34</span><span class="ttl"><b>Build a Complete Library of Support Response Templates</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p34">My product: [name].
+What it delivers: [specific outcome].
+How it is delivered: [access method].
+My brand tone: [warm, helpful, not corporate].
+
+Write complete response templates for these 10 common support queries.
+Each response under 80 words. Warm and clear:
+
+Query 1 — I cannot find the download link
+Query 2 — The file will not open
+Query 3 — I have not received my purchase confirmation email
+Query 4 — I purchased but cannot access the product
+Query 5 — I am not sure where to start with this product
+Query 6 — Can I share this with a friend or colleague
+Query 7 — Will there be updates and will I get them
+Query 8 — I am not technical — can I still use this
+Query 9 — I want to leave a review or testimonial — how
+Query 10 — I have a question not covered in the FAQ
+
+After each template write a one-sentence note on the most
+common root cause of this query and one thing I could change
+in my product or delivery to prevent it.</pre><button class="copy-btn" data-copy="p34" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Customer Service" data-search="customer service write responses to every type of community post and question my community: [describe your skool community or online group —
+the topic, the member level, and what members typically post].
+my brand tone: [describe how you write].
+my role: [community owner / moderator / both].
+
+write complete response templates for these 8 community post types:
+
+type 1 — new member introduction post (welcome them warmly,
+          ask them one specific question to get them engaged)
+
+type 2 — member sharing a win (celebrate specifically, ask a
+          follow-up question that gets them to share more)
+
+type 3 — member asking a question you have answered before
+          (point them to the resource without making them feel bad)
+
+type 4 — member expressing frustration or feeling stuck (validate,
+          ask a clarifying question, give one immediate action)
+
+type 5 — member sharing a negative experience with your product
+          (respond publicly and warmly, take it private if needed)
+
+type 6 — member promoting their own product or service
+          (redirect firmly but kindly, state community guidelines)
+
+type 7 — member asking for feedback on their work
+          (give one specific positive, one specific improvement)
+
+type 8 — low engagement post that deserves a response
+          (engage genuinely even when others have not)" style="--mod:#4ADE80"><div class="ih"><span class="badge">Customer Service</span><span class="num">35</span><span class="ttl"><b>Write Responses to Every Type of Community Post and Question</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p35">My community: [describe your Skool community or online group —
+the topic, the member level, and what members typically post].
+My brand tone: [describe how you write].
+My role: [community owner / moderator / both].
+
+Write complete response templates for these 8 community post types:
+
+Type 1 — New member introduction post (welcome them warmly,
+          ask them one specific question to get them engaged)
+
+Type 2 — Member sharing a win (celebrate specifically, ask a
+          follow-up question that gets them to share more)
+
+Type 3 — Member asking a question you have answered before
+          (point them to the resource without making them feel bad)
+
+Type 4 — Member expressing frustration or feeling stuck (validate,
+          ask a clarifying question, give one immediate action)
+
+Type 5 — Member sharing a negative experience with your product
+          (respond publicly and warmly, take it private if needed)
+
+Type 6 — Member promoting their own product or service
+          (redirect firmly but kindly, state community guidelines)
+
+Type 7 — Member asking for feedback on their work
+          (give one specific positive, one specific improvement)
+
+Type 8 — Low engagement post that deserves a response
+          (engage genuinely even when others have not)</pre><button class="copy-btn" data-copy="p35" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Customer Service" data-search="customer service design and write the complete buyer onboarding experience my product: [name].
+what it delivers: [specific outcome].
+my audience: [describe your buyers — their level, what they know,
+what they struggle with when starting something new].
+my brand tone: [describe how you write].
+
+design and write the complete buyer onboarding experience:
+
+part 1 — onboarding email sequence (3 emails):
+email 1 — day 0: immediate delivery, first step, expectation setting
+email 2 — day 2: how to use the product effectively, common mistake to avoid
+email 3 — day 5: check-in, offer help, point to next step
+
+part 2 — quick start guide (one page):
+a one-page guide that answers: what is this, how to use it,
+where to start, what to do if stuck. under 300 words.
+clear and practical.
+
+part 3 — first 7 days action plan:
+a day-by-day action plan for getting the most from this product
+in the first week. each day has one specific task. under 20 words
+per day.
+
+part 4 — success checklist:
+a 10-item checklist of the actions a buyer should complete to
+get the full value from this product. framed as milestones
+rather than tasks." style="--mod:#4ADE80"><div class="ih"><span class="badge">Customer Service</span><span class="num">36</span><span class="ttl"><b>Design and Write the Complete Buyer Onboarding Experience</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p36">My product: [name].
+What it delivers: [specific outcome].
+My audience: [describe your buyers — their level, what they know,
+what they struggle with when starting something new].
+My brand tone: [describe how you write].
+
+Design and write the complete buyer onboarding experience:
+
+Part 1 — Onboarding email sequence (3 emails):
+Email 1 — Day 0: immediate delivery, first step, expectation setting
+Email 2 — Day 2: how to use the product effectively, common mistake to avoid
+Email 3 — Day 5: check-in, offer help, point to next step
+
+Part 2 — Quick start guide (one page):
+A one-page guide that answers: what is this, how to use it,
+where to start, what to do if stuck. Under 300 words.
+Clear and practical.
+
+Part 3 — First 7 days action plan:
+A day-by-day action plan for getting the most from this product
+in the first week. Each day has one specific task. Under 20 words
+per day.
+
+Part 4 — Success checklist:
+A 10-item checklist of the actions a buyer should complete to
+get the full value from this product. Framed as milestones
+rather than tasks.</pre><button class="copy-btn" data-copy="p36" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Customer Service" data-search="customer service build a system to collect regular buyer testimonials my products: [list your main products].
+my audience: [describe your buyers].
+my brand tone: [describe how you write].
+
+build my testimonial collection system. write all 4 parts in full:
+
+part 1 — 5 different testimonial request messages to rotate.
+each one asks a different specific question:
+message 1 — what changed for you after using this?
+message 2 — what were you worried about before buying?
+message 3 — who would you recommend this to?
+message 4 — what is the most useful thing in this product?
+message 5 — what result did you get in the first week?
+each message under 60 words. easy to respond to.
+
+part 2 — a follow-up message to send if the first request got
+no response. gentle. not pushy. under 40 words.
+
+part 3 — a thank you message to send after receiving a testimonial.
+warm. asks permission to share it publicly. under 50 words.
+
+part 4 — a social proof post template that uses a testimonial.
+[testimonial text] placeholder. context around it.
+cta at the end. under 150 words." style="--mod:#4ADE80"><div class="ih"><span class="badge">Customer Service</span><span class="num">37</span><span class="ttl"><b>Build a System to Collect Regular Buyer Testimonials</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p37">My products: [list your main products].
+My audience: [describe your buyers].
+My brand tone: [describe how you write].
+
+Build my testimonial collection system. Write all 4 parts in full:
+
+Part 1 — 5 different testimonial request messages to rotate.
+Each one asks a different specific question:
+Message 1 — What changed for you after using this?
+Message 2 — What were you worried about before buying?
+Message 3 — Who would you recommend this to?
+Message 4 — What is the most useful thing in this product?
+Message 5 — What result did you get in the first week?
+Each message under 60 words. Easy to respond to.
+
+Part 2 — A follow-up message to send if the first request got
+no response. Gentle. Not pushy. Under 40 words.
+
+Part 3 — A thank you message to send after receiving a testimonial.
+Warm. Asks permission to share it publicly. Under 50 words.
+
+Part 4 — A social proof post template that uses a testimonial.
+[TESTIMONIAL TEXT] placeholder. Context around it.
+CTA at the end. Under 150 words.</pre><button class="copy-btn" data-copy="p37" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Customer Service" data-search="customer service design a simple referral programme for your products my products: [list your main products with prices].
+my audience: [describe your buyers — are they also creators
+or business owners who have their own audiences?].
+my brand tone: [describe how you write].
+
+design and write a complete referral programme:
+
+part 1 — programme structure:
+commission rate (suggest based on my price points).
+cookie duration. payment method. minimum payout.
+what materials i will provide to affiliates.
+
+part 2 — affiliate recruitment email:
+a complete email to send to existing buyers inviting them
+to become affiliates. why it benefits them. how it works.
+how to sign up. under 200 words.
+
+part 3 — affiliate welcome pack:
+everything an approved affiliate needs to start promoting.
+include: a product description they can use, 3 social post
+templates, 1 email template, suggested prices to promote,
+and the key selling points to emphasise.
+
+part 4 — affiliate performance email:
+a monthly check-in email to send to affiliates showing their
+stats, encouraging them to promote, and sharing any news about
+product updates or new commission opportunities." style="--mod:#4ADE80"><div class="ih"><span class="badge">Customer Service</span><span class="num">38</span><span class="ttl"><b>Design a Simple Referral Programme for Your Products</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p38">My products: [list your main products with prices].
+My audience: [describe your buyers — are they also creators
+or business owners who have their own audiences?].
+My brand tone: [describe how you write].
+
+Design and write a complete referral programme:
+
+Part 1 — Programme structure:
+Commission rate (suggest based on my price points).
+Cookie duration. Payment method. Minimum payout.
+What materials I will provide to affiliates.
+
+Part 2 — Affiliate recruitment email:
+A complete email to send to existing buyers inviting them
+to become affiliates. Why it benefits them. How it works.
+How to sign up. Under 200 words.
+
+Part 3 — Affiliate welcome pack:
+Everything an approved affiliate needs to start promoting.
+Include: a product description they can use, 3 social post
+templates, 1 email template, suggested prices to promote,
+and the key selling points to emphasise.
+
+Part 4 — Affiliate performance email:
+A monthly check-in email to send to affiliates showing their
+stats, encouraging them to promote, and sharing any news about
+product updates or new commission opportunities.</pre><button class="copy-btn" data-copy="p38" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Customer Service" data-search="customer service re-engage buyers who have gone quiet my product: [name they purchased].
+my next product or offer: [name and what it is].
+my audience: [describe your buyers].
+my brand tone: [describe how you write].
+
+write a complete 3-message re-engagement sequence for buyers
+who purchased [product] but have not engaged in 30 or more days:
+
+message 1 — soft check-in (day 0):
+no selling. just checking in. ask one question about where
+they are with the product. share one quick tip they might have
+missed. under 100 words.
+
+message 2 — value add (day 3 if no response):
+share something genuinely useful related to what they bought.
+a resource, a tip, or an update. still no selling.
+mention you will share something relevant soon. under 120 words.
+
+message 3 — gentle offer (day 7 if still no response):
+acknowledge they may be busy. share what you have been
+working on. introduce the next product naturally.
+give them a reason to reply. under 150 words.
+
+after the sequence write a note on what to do if none of the
+3 messages get a response." style="--mod:#4ADE80"><div class="ih"><span class="badge">Customer Service</span><span class="num">39</span><span class="ttl"><b>Re-Engage Buyers Who Have Gone Quiet</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p39">My product: [name they purchased].
+My next product or offer: [name and what it is].
+My audience: [describe your buyers].
+My brand tone: [describe how you write].
+
+Write a complete 3-message re-engagement sequence for buyers
+who purchased [product] but have not engaged in 30 or more days:
+
+Message 1 — Soft check-in (Day 0):
+No selling. Just checking in. Ask one question about where
+they are with the product. Share one quick tip they might have
+missed. Under 100 words.
+
+Message 2 — Value add (Day 3 if no response):
+Share something genuinely useful related to what they bought.
+A resource, a tip, or an update. Still no selling.
+Mention you will share something relevant soon. Under 120 words.
+
+Message 3 — Gentle offer (Day 7 if still no response):
+Acknowledge they may be busy. Share what you have been
+working on. Introduce the next product naturally.
+Give them a reason to reply. Under 150 words.
+
+After the sequence write a note on what to do if none of the
+3 messages get a response.</pre><button class="copy-btn" data-copy="p39" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Customer Service" data-search="customer service turn a negative buyer experience into a loyal customer my product: [name].
+my brand tone: [warm, honest, solution-focused].
+
+write complete response scripts for these 5 difficult buyer situations:
+
+situation 1 — buyer says the product is not what they expected:
+email response that acknowledges their experience, asks what
+they were hoping for, and offers a solution. under 120 words.
+
+situation 2 — buyer says the product did not work for them:
+email that validates their experience, asks what specifically
+did not work, offers to help them get a result. under 100 words.
+
+situation 3 — buyer posts a public negative comment:
+a public reply that is warm, non-defensive, and invites them
+to continue the conversation privately. under 60 words.
+
+situation 4 — buyer asks for a refund but your policy does not
+allow it: a response that acknowledges their frustration, explains
+the policy clearly, and offers an alternative. under 120 words.
+
+situation 5 — buyer is satisfied but has never left a review:
+a message that thanks them for being a customer and makes
+it incredibly easy for them to leave one line of feedback.
+under 60 words." style="--mod:#4ADE80"><div class="ih"><span class="badge">Customer Service</span><span class="num">40</span><span class="ttl"><b>Turn a Negative Buyer Experience Into a Loyal Customer</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p40">My product: [name].
+My brand tone: [warm, honest, solution-focused].
+
+Write complete response scripts for these 5 difficult buyer situations:
+
+Situation 1 — Buyer says the product is not what they expected:
+Email response that acknowledges their experience, asks what
+they were hoping for, and offers a solution. Under 120 words.
+
+Situation 2 — Buyer says the product did not work for them:
+Email that validates their experience, asks what specifically
+did not work, offers to help them get a result. Under 100 words.
+
+Situation 3 — Buyer posts a public negative comment:
+A public reply that is warm, non-defensive, and invites them
+to continue the conversation privately. Under 60 words.
+
+Situation 4 — Buyer asks for a refund but your policy does not
+allow it: A response that acknowledges their frustration, explains
+the policy clearly, and offers an alternative. Under 120 words.
+
+Situation 5 — Buyer is satisfied but has never left a review:
+A message that thanks them for being a customer and makes
+it incredibly easy for them to leave one line of feedback.
+Under 60 words.</pre><button class="copy-btn" data-copy="p40" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Research" data-search="research build a complete buyer profile for any niche my niche: [your specific topic area].
+my products: [list what you sell].
+my content: [describe what you create content about].
+
+run my buyer research agent. complete all 5 steps:
+
+step 1 — build a detailed profile of my ideal buyer.
+          include: age range, gender (if relevant), what they do
+          for work, income level, what they spend money on
+          related to my niche, what they want most, what they
+          are afraid of, what they have already tried, and
+          what success looks like to them specifically.
+
+step 2 — identify the 10 most painful and specific frustrations
+          my ideal buyer has right now. use the exact language
+          they would use to describe each one — not marketing
+          language.
+
+step 3 — identify the 5 biggest hopes and desires my ideal buyer
+          has. what is the best possible version of their situation?
+          what would they pay anything to achieve?
+
+step 4 — identify the 5 most common objections my ideal buyer
+          has before buying anything in my niche. what holds them
+          back from spending money here?
+
+step 5 — write a one-paragraph summary of my ideal buyer that
+          i can keep on hand and refer to when creating any content,
+          product, or sales copy." style="--mod:#60A5FA"><div class="ih"><span class="badge">Research</span><span class="num">41</span><span class="ttl"><b>Build a Complete Buyer Profile for Any Niche</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p41">My niche: [your specific topic area].
+My products: [list what you sell].
+My content: [describe what you create content about].
+
+Run my buyer research agent. Complete all 5 steps:
+
+Step 1 — Build a detailed profile of my ideal buyer.
+          Include: age range, gender (if relevant), what they do
+          for work, income level, what they spend money on
+          related to my niche, what they want most, what they
+          are afraid of, what they have already tried, and
+          what success looks like to them specifically.
+
+Step 2 — Identify the 10 most painful and specific frustrations
+          my ideal buyer has right now. Use the exact language
+          they would use to describe each one — not marketing
+          language.
+
+Step 3 — Identify the 5 biggest hopes and desires my ideal buyer
+          has. What is the best possible version of their situation?
+          What would they pay anything to achieve?
+
+Step 4 — Identify the 5 most common objections my ideal buyer
+          has before buying anything in my niche. What holds them
+          back from spending money here?
+
+Step 5 — Write a one-paragraph summary of my ideal buyer that
+          I can keep on hand and refer to when creating any content,
+          product, or sales copy.</pre><button class="copy-btn" data-copy="p41" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Research" data-search="research find the exact words your audience uses to describe their problems my niche: [your specific topic area].
+my audience: [describe who they are].
+my main topic or product: [what you teach or sell].
+
+run my language research agent. complete all 4 steps:
+
+step 1 — generate 30 specific phrases my audience uses to describe
+          the main problem my product or content solves.
+          use casual conversational language — the kind of thing
+          they would say to a friend, not in a formal survey.
+          include emotional language, practical language, and
+          the frustrations they express when things are not working.
+
+step 2 — generate 20 phrases my audience uses to describe what
+          success looks like for them. what do they say when
+          things are going well? what specific outcomes do they
+          describe as wins?
+
+step 3 — generate 15 phrases my audience uses when they are
+          sceptical — when they doubt that a solution will work
+          for them specifically. what do they say to themselves
+          when they are considering buying but have doubts?
+
+step 4 — take the strongest 10 phrases from steps 1, 2, and 3
+          and show me how to use each one in a product listing,
+          a social media caption, or an email subject line." style="--mod:#60A5FA"><div class="ih"><span class="badge">Research</span><span class="num">42</span><span class="ttl"><b>Find the Exact Words Your Audience Uses to Describe Their Problems</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p42">My niche: [your specific topic area].
+My audience: [describe who they are].
+My main topic or product: [what you teach or sell].
+
+Run my language research agent. Complete all 4 steps:
+
+Step 1 — Generate 30 specific phrases my audience uses to describe
+          the main problem my product or content solves.
+          Use casual conversational language — the kind of thing
+          they would say to a friend, not in a formal survey.
+          Include emotional language, practical language, and
+          the frustrations they express when things are not working.
+
+Step 2 — Generate 20 phrases my audience uses to describe what
+          success looks like for them. What do they say when
+          things are going well? What specific outcomes do they
+          describe as wins?
+
+Step 3 — Generate 15 phrases my audience uses when they are
+          sceptical — when they doubt that a solution will work
+          for them specifically. What do they say to themselves
+          when they are considering buying but have doubts?
+
+Step 4 — Take the strongest 10 phrases from Steps 1, 2, and 3
+          and show me how to use each one in a product listing,
+          a social media caption, or an email subject line.</pre><button class="copy-btn" data-copy="p42" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Research" data-search="research analyse your niche and find your positioning gap my niche: [your specific topic area].
+my audience: [describe who you serve].
+my products: [list what you sell].
+my content: [describe what you create].
+
+competitors or similar creators i am aware of:
+[list 3 to 5 names, brands, or product types in your space.
+if you do not know specific names describe the type of creator
+or product that serves your audience.]
+
+run my competitive research agent. complete all 4 steps:
+
+step 1 — analyse what the typical creator or product in my space
+          offers. what do they teach? what formats do they use?
+          what prices do they charge? what do they do well?
+
+step 2 — identify the 5 gaps — things my audience wants that
+          are not being served well by existing creators or
+          products in my niche. where is there unmet demand?
+
+step 3 — identify my strongest possible positioning. based on
+          my niche, audience, and what i offer, what is the
+          most distinctive angle i could own in this space?
+
+step 4 — write a positioning statement for me — one sentence
+          that describes who i am, who i serve, and what makes
+          me different from everyone else in this niche." style="--mod:#60A5FA"><div class="ih"><span class="badge">Research</span><span class="num">43</span><span class="ttl"><b>Analyse Your Niche and Find Your Positioning Gap</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p43">My niche: [your specific topic area].
+My audience: [describe who you serve].
+My products: [list what you sell].
+My content: [describe what you create].
+
+Competitors or similar creators I am aware of:
+[List 3 to 5 names, brands, or product types in your space.
+If you do not know specific names describe the type of creator
+or product that serves your audience.]
+
+Run my competitive research agent. Complete all 4 steps:
+
+Step 1 — Analyse what the typical creator or product in my space
+          offers. What do they teach? What formats do they use?
+          What prices do they charge? What do they do well?
+
+Step 2 — Identify the 5 gaps — things my audience wants that
+          are not being served well by existing creators or
+          products in my niche. Where is there unmet demand?
+
+Step 3 — Identify my strongest possible positioning. Based on
+          my niche, audience, and what I offer, what is the
+          most distinctive angle I could own in this space?
+
+Step 4 — Write a positioning statement for me — one sentence
+          that describes who I am, who I serve, and what makes
+          me different from everyone else in this niche.</pre><button class="copy-btn" data-copy="p43" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Research" data-search="research research whether a product idea will sell before you build it my niche: [your topic area].
+my audience: [describe your target buyer].
+my existing products: [list what you already sell].
+
+product idea i want to research:
+[describe the product concept — what it is, who it is for,
+what problem it solves, what format it would take].
+
+run my product research agent. complete all 4 steps:
+
+step 1 — demand indicators. what evidence suggests there is
+          demand for this? what questions are people in my niche
+          asking that this product would answer? what searches
+          or conversations point to this need?
+
+step 2 — market analysis. are there existing products that solve
+          this problem? what do they offer? what do they miss?
+          how would my product be different or better?
+
+step 3 — audience fit. is my existing audience the right buyer
+          for this product? would my current followers and
+          subscribers want this — or would i need to build a
+          new audience?
+
+step 4 — build or validate first recommendation. should i build
+          this and launch it — or should i validate demand first
+          (e.g. by posting content about the topic and seeing the
+          response, or by asking my audience directly before
+          building anything)?" style="--mod:#60A5FA"><div class="ih"><span class="badge">Research</span><span class="num">44</span><span class="ttl"><b>Research Whether a Product Idea Will Sell Before You Build It</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p44">My niche: [your topic area].
+My audience: [describe your target buyer].
+My existing products: [list what you already sell].
+
+Product idea I want to research:
+[Describe the product concept — what it is, who it is for,
+what problem it solves, what format it would take].
+
+Run my product research agent. Complete all 4 steps:
+
+Step 1 — Demand indicators. What evidence suggests there is
+          demand for this? What questions are people in my niche
+          asking that this product would answer? What searches
+          or conversations point to this need?
+
+Step 2 — Market analysis. Are there existing products that solve
+          this problem? What do they offer? What do they miss?
+          How would my product be different or better?
+
+Step 3 — Audience fit. Is my existing audience the right buyer
+          for this product? Would my current followers and
+          subscribers want this — or would I need to build a
+          new audience?
+
+Step 4 — Build or validate first recommendation. Should I build
+          this and launch it — or should I validate demand first
+          (e.g. by posting content about the topic and seeing the
+          response, or by asking my audience directly before
+          building anything)?</pre><button class="copy-btn" data-copy="p44" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Research" data-search="research find the content your audience wants that nobody is creating my niche: [your specific topic area].
+my audience: [describe who they are and what they want].
+my current content topics: [list the main subjects you cover
+in your content — be specific].
+
+run my content gap research agent. complete all 4 steps:
+
+step 1 — identify 10 questions my audience is asking that are
+          not being answered well by existing content in my niche.
+          these should be specific questions — not broad topics.
+
+step 2 — identify 5 misconceptions or myths in my niche that
+          my audience believes but that are wrong or incomplete.
+          these are content opportunities because correcting a
+          misconception is more valuable than repeating what
+          everyone already says.
+
+step 3 — identify 5 content angles that everyone in my niche
+          ignores because they are uncomfortable, complex, or
+          unpopular — but that my audience actually needs to hear.
+
+step 4 — from the gaps identified in steps 1, 2, and 3 select
+          the 5 highest-value content opportunities and write a
+          complete content brief for each one — topic, angle,
+          key points, and suggested format." style="--mod:#60A5FA"><div class="ih"><span class="badge">Research</span><span class="num">45</span><span class="ttl"><b>Find the Content Your Audience Wants That Nobody Is Creating</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p45">My niche: [your specific topic area].
+My audience: [describe who they are and what they want].
+My current content topics: [list the main subjects you cover
+in your content — be specific].
+
+Run my content gap research agent. Complete all 4 steps:
+
+Step 1 — Identify 10 questions my audience is asking that are
+          not being answered well by existing content in my niche.
+          These should be specific questions — not broad topics.
+
+Step 2 — Identify 5 misconceptions or myths in my niche that
+          my audience believes but that are wrong or incomplete.
+          These are content opportunities because correcting a
+          misconception is more valuable than repeating what
+          everyone already says.
+
+Step 3 — Identify 5 content angles that everyone in my niche
+          ignores because they are uncomfortable, complex, or
+          unpopular — but that my audience actually needs to hear.
+
+Step 4 — From the gaps identified in Steps 1, 2, and 3 select
+          the 5 highest-value content opportunities and write a
+          complete content brief for each one — topic, angle,
+          key points, and suggested format.</pre><button class="copy-btn" data-copy="p45" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Research" data-search="research identify emerging trends in your niche before they peak my niche: [your specific topic area].
+my audience: [describe who they are].
+my current content and products: [what you make and sell].
+
+run my trend research agent. complete all 4 steps:
+
+step 1 — identify 10 emerging trends in my niche that are gaining
+          momentum but have not yet peaked. these should be things
+          that are growing in conversations, searches, and interest
+          but that most creators in my niche are not yet covering.
+
+step 2 — for each trend assess: how big could this become, how
+          long before it peaks, is it a lasting shift or a short-
+          term fad, and who in my audience would care most about it?
+
+step 3 — identify the top 3 trends i should act on now — the ones
+          where i have the credibility to create content or a product
+          and where the timing advantage of moving first is significant.
+
+step 4 — for each of the top 3 trends write a complete action plan:
+          what content to create, what product to build, and what
+          to publish first to establish a position on this trend." style="--mod:#60A5FA"><div class="ih"><span class="badge">Research</span><span class="num">46</span><span class="ttl"><b>Identify Emerging Trends in Your Niche Before They Peak</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p46">My niche: [your specific topic area].
+My audience: [describe who they are].
+My current content and products: [what you make and sell].
+
+Run my trend research agent. Complete all 4 steps:
+
+Step 1 — Identify 10 emerging trends in my niche that are gaining
+          momentum but have not yet peaked. These should be things
+          that are growing in conversations, searches, and interest
+          but that most creators in my niche are not yet covering.
+
+Step 2 — For each trend assess: how big could this become, how
+          long before it peaks, is it a lasting shift or a short-
+          term fad, and who in my audience would care most about it?
+
+Step 3 — Identify the top 3 trends I should act on now — the ones
+          where I have the credibility to create content or a product
+          and where the timing advantage of moving first is significant.
+
+Step 4 — For each of the top 3 trends write a complete action plan:
+          what content to create, what product to build, and what
+          to publish first to establish a position on this trend.</pre><button class="copy-btn" data-copy="p46" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Research" data-search="research create a survey to understand your audience deeply my niche: [your specific topic area].
+my audience: [describe who they are].
+my goal for this survey: [what do you want to learn —
+e.g. what to create next, why people are not buying, what
+content resonates most, what challenges they face right now].
+
+run my audience research agent. complete all 4 steps:
+
+step 1 — design a complete survey with 10 questions.
+          mix of question types: 3 multiple choice, 3 short answer,
+          2 rating scale (1 to 5), 2 open-ended.
+          every question should give me actionable information.
+          no vanity questions. no leading questions.
+
+step 2 — write the survey introduction — the message i send
+          to invite people to complete the survey. why i am asking.
+          how long it takes. what i will do with the results.
+          under 100 words.
+
+step 3 — write a thank you message for when they complete the survey.
+          warm. tell them when they will hear about the results.
+          under 50 words.
+
+step 4 — tell me exactly what to do with the results once i have
+          them. how to analyse them. what to look for. how to turn
+          the responses into a product, a content plan, or a business
+          decision." style="--mod:#60A5FA"><div class="ih"><span class="badge">Research</span><span class="num">47</span><span class="ttl"><b>Create a Survey to Understand Your Audience Deeply</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p47">My niche: [your specific topic area].
+My audience: [describe who they are].
+My goal for this survey: [what do you want to learn —
+e.g. what to create next, why people are not buying, what
+content resonates most, what challenges they face right now].
+
+Run my audience research agent. Complete all 4 steps:
+
+Step 1 — Design a complete survey with 10 questions.
+          Mix of question types: 3 multiple choice, 3 short answer,
+          2 rating scale (1 to 5), 2 open-ended.
+          Every question should give me actionable information.
+          No vanity questions. No leading questions.
+
+Step 2 — Write the survey introduction — the message I send
+          to invite people to complete the survey. Why I am asking.
+          How long it takes. What I will do with the results.
+          Under 100 words.
+
+Step 3 — Write a thank you message for when they complete the survey.
+          Warm. Tell them when they will hear about the results.
+          Under 50 words.
+
+Step 4 — Tell me exactly what to do with the results once I have
+          them. How to analyse them. What to look for. How to turn
+          the responses into a product, a content plan, or a business
+          decision.</pre><button class="copy-btn" data-copy="p47" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Research" data-search="research research the right price for any product in your niche my niche: [your specific topic area].
+my audience: [describe your target buyer — their income level and
+what they typically spend on products like yours].
+
+product i want to price:
+name: [product name].
+format: [pdf / prompt pack / course / template / checklist].
+what it delivers: [specific outcome].
+how long it took to create: [hours or days].
+how long the buyer uses it: [one-time use / daily / weekly / ongoing].
+
+run my pricing research agent. complete all 4 steps:
+
+step 1 — market price range. what do similar products in my niche
+          typically sell for? what is the low end, the mid range,
+          and the premium? what determines where a product lands?
+
+step 2 — value-based price assessment. what is the outcome worth
+          to my buyer? if this product saves them 5 hours per week,
+          what is that worth in money or stress reduction?
+          what would they pay for the same outcome from a consultant?
+
+step 3 — price sensitivity analysis. at what price does my
+          audience start to hesitate? what is the impulse-buy
+          threshold for my audience? what signals quality versus
+          what signals it is too cheap to be good?
+
+step 4 — recommendation. give me a specific recommended price
+          with a rationale. then tell me how to test whether that
+          price is right and what to do if conversions are low." style="--mod:#60A5FA"><div class="ih"><span class="badge">Research</span><span class="num">48</span><span class="ttl"><b>Research the Right Price for Any Product in Your Niche</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p48">My niche: [your specific topic area].
+My audience: [describe your target buyer — their income level and
+what they typically spend on products like yours].
+
+Product I want to price:
+Name: [product name].
+Format: [PDF / prompt pack / course / template / checklist].
+What it delivers: [specific outcome].
+How long it took to create: [hours or days].
+How long the buyer uses it: [one-time use / daily / weekly / ongoing].
+
+Run my pricing research agent. Complete all 4 steps:
+
+Step 1 — Market price range. What do similar products in my niche
+          typically sell for? What is the low end, the mid range,
+          and the premium? What determines where a product lands?
+
+Step 2 — Value-based price assessment. What is the outcome worth
+          to my buyer? If this product saves them 5 hours per week,
+          what is that worth in money or stress reduction?
+          What would they pay for the same outcome from a consultant?
+
+Step 3 — Price sensitivity analysis. At what price does my
+          audience start to hesitate? What is the impulse-buy
+          threshold for my audience? What signals quality versus
+          what signals it is too cheap to be good?
+
+Step 4 — Recommendation. Give me a specific recommended price
+          with a rationale. Then tell me how to test whether that
+          price is right and what to do if conversions are low.</pre><button class="copy-btn" data-copy="p48" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Research" data-search="research find the best time to launch any product my niche: [your topic area].
+my audience: [describe who they are — their work situation,
+family situation, and when they are most active and receptive].
+my platforms: [list where you post and communicate].
+product i am launching: [name and format].
+my approximate launch window: [when you are thinking of launching
+— e.g. next week, next month, end of quarter].
+
+run my launch timing research agent. complete all 4 steps:
+
+step 1 — best day of week to launch. which day gives me the
+          highest chance of my audience seeing and acting on
+          my launch posts and emails? explain the reasoning
+          based on my audience type.
+
+step 2 — best time of day for posts and emails. when is my
+          audience most likely to be online and in a buying
+          mindset? morning, lunchtime, evening?
+
+step 3 — seasonal and contextual timing. are there any upcoming
+          events, holidays, or busy periods in my audience&#x27;s life
+          that would make them more or less receptive to a launch
+          in my window?
+
+step 4 — final timing recommendation. give me a specific launch
+          date and time with a rationale. then give me the
+          complete 5-day schedule around the launch — what to
+          post or send each day." style="--mod:#60A5FA"><div class="ih"><span class="badge">Research</span><span class="num">49</span><span class="ttl"><b>Find the Best Time to Launch Any Product</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p49">My niche: [your topic area].
+My audience: [describe who they are — their work situation,
+family situation, and when they are most active and receptive].
+My platforms: [list where you post and communicate].
+Product I am launching: [name and format].
+My approximate launch window: [when you are thinking of launching
+— e.g. next week, next month, end of quarter].
+
+Run my launch timing research agent. Complete all 4 steps:
+
+Step 1 — Best day of week to launch. Which day gives me the
+          highest chance of my audience seeing and acting on
+          my launch posts and emails? Explain the reasoning
+          based on my audience type.
+
+Step 2 — Best time of day for posts and emails. When is my
+          audience most likely to be online and in a buying
+          mindset? Morning, lunchtime, evening?
+
+Step 3 — Seasonal and contextual timing. Are there any upcoming
+          events, holidays, or busy periods in my audience&#x27;s life
+          that would make them more or less receptive to a launch
+          in my window?
+
+Step 4 — Final timing recommendation. Give me a specific launch
+          date and time with a rationale. Then give me the
+          complete 5-day schedule around the launch — what to
+          post or send each day.</pre><button class="copy-btn" data-copy="p49" style="margin-top:14px">Copy Prompt</button></div></article><article class="item" data-cat="Research" data-search="research analyse and improve your online business model my niche: [your topic area].
+my audience: [describe who you serve].
+
+my current income streams:
+[list every way you currently make money — products, services,
+affiliate income, communities, sponsorships, anything. include
+rough monthly revenue for each if you are comfortable.]
+
+my current content and audience:
+[describe where you show up, how big your audience is on each
+platform, and your email list size if you have one.]
+
+my time allocation:
+[roughly how many hours per week do you spend on creation,
+admin, customer service, and marketing.]
+
+run my business model analysis agent. complete all 4 steps:
+
+step 1 — income analysis. which income streams give me the best
+          return on time invested? which are underperforming?
+          which have the most growth potential?
+
+step 2 — gap analysis. what income streams am i missing that
+          would complement what i already do? what is the
+          highest-leverage next addition to my business model?
+
+step 3 — simplification recommendation. what should i stop
+          doing or deprioritise to free up time for higher-
+          value activities?
+
+step 4 — 90-day plan. give me a specific 90-day action plan
+          to improve my business model — what to build, what
+          to cut, what to prioritise each month." style="--mod:#60A5FA"><div class="ih"><span class="badge">Research</span><span class="num">50</span><span class="ttl"><b>Analyse and Improve Your Online Business Model</b></span><span class="chev">&rsaquo;</span></div><div class="ib"><pre class="pre" id="p50">My niche: [your topic area].
+My audience: [describe who you serve].
+
+My current income streams:
+[List every way you currently make money — products, services,
+affiliate income, communities, sponsorships, anything. Include
+rough monthly revenue for each if you are comfortable.]
+
+My current content and audience:
+[Describe where you show up, how big your audience is on each
+platform, and your email list size if you have one.]
+
+My time allocation:
+[Roughly how many hours per week do you spend on creation,
+admin, customer service, and marketing.]
+
+Run my business model analysis agent. Complete all 4 steps:
+
+Step 1 — Income analysis. Which income streams give me the best
+          return on time invested? Which are underperforming?
+          Which have the most growth potential?
+
+Step 2 — Gap analysis. What income streams am I missing that
+          would complement what I already do? What is the
+          highest-leverage next addition to my business model?
+
+Step 3 — Simplification recommendation. What should I stop
+          doing or deprioritise to free up time for higher-
+          value activities?
+
+Step 4 — 90-day plan. Give me a specific 90-day action plan
+          to improve my business model — what to build, what
+          to cut, what to prioritise each month.</pre><button class="copy-btn" data-copy="p50" style="margin-top:14px">Copy Prompt</button></div></article><p class="none" id="none" style="display:none">No prompts match that search. Try a different keyword or clear the filter.</p></main><footer class="site-footer"><b>GetPaidToBeYouOnline</b>AI Agents in Action</footer><script>var TOTAL=50; var NOUN="prompts";
+var items=[].slice.call(document.querySelectorAll('.item'));
+var cnt=document.getElementById('count'), none=document.getElementById('none');
+var cat='All', q='';
+function apply(){
+  var shown=0;
+  items.forEach(function(it){
+    var okc = cat==='All' || it.dataset.cat===cat;
+    var okq = !q || it.dataset.search.indexOf(q)>-1;
+    var ok = okc && okq;
+    it.style.display = ok ? '' : 'none';
+    if(ok) shown++;
+  });
+  cnt.textContent='Showing '+shown+' of '+TOTAL+' '+NOUN;
+  none.style.display = shown ? 'none' : 'block';
+}
+document.querySelectorAll('.fb').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.fb').forEach(function(x){x.classList.remove('on')});
+    b.classList.add('on'); cat=b.dataset.cat; apply();
+  });
+});
+document.getElementById('search').addEventListener('input',function(e){
+  q=e.target.value.toLowerCase().trim(); apply();
+});
+items.forEach(function(it){
+  it.querySelector('.ih').addEventListener('click',function(){it.classList.toggle('open')});
+});
+apply();
+
+function wireCopy(){
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    if(btn._wired) return; btn._wired=true;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var el=document.getElementById(btn.getAttribute('data-copy'));
+      if(!el) return;
+      var text=el.innerText, orig=btn.textContent;
+      function done(){btn.textContent='\u2713  Copied';btn.classList.add('copied');
+        setTimeout(function(){btn.textContent=orig;btn.classList.remove('copied')},2000)}
+      function fallback(){
+        var ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');
+        ta.style.position='absolute';ta.style.left='-9999px';document.body.appendChild(ta);
+        ta.select();ta.setSelectionRange(0,ta.value.length);
+        var ok=false;try{ok=document.execCommand('copy')}catch(err){ok=false}
+        document.body.removeChild(ta);
+        if(ok){done()}else{btn.textContent='Press Ctrl+C';
+          setTimeout(function(){btn.textContent=orig},2500)}
+      }
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done,fallback)
+      }else{fallback()}
+    });
+  });
+}
+wireCopy();
+</script></body></html>
