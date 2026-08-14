@@ -1,0 +1,336 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Agent Output Rescue Pack</title><meta name="description" content="30 correction sentences and 10 before-and-after rewrites — for when the output comes back generic"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"><style>:root{--bg:#1A0A2E;--mid:#2D1B4E;--card:#3D2660;--m1:#C9B8E8;--m2:#60A5FA;
+--m3:#4ADE80;--m4:#FBBF24;--prompt-bg:#0D0D1A;--white:#FFFFFF;--muted:#A89BC2;
+--border:#5B3F8C;--green:#22C55E}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--white);font-family:'Nunito',-apple-system,BlinkMacSystemFont,sans-serif;
+font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-height:1.2}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 70px}
+header.top{background:linear-gradient(180deg,var(--mid) 0%,var(--bg) 100%);
+border-bottom:1px solid var(--border);padding:34px 0 30px}
+header.top .wrap{padding-bottom:0}
+.home{color:var(--muted);text-decoration:none;font-size:14px;font-weight:700}
+.home:hover{color:var(--white)}
+h1.title{font-size:clamp(30px,5.5vw,46px);margin:18px 0 12px}
+.sub{color:var(--m1);font-size:clamp(15px,2.2vw,19px);font-family:'Playfair Display',Georgia,serif}
+.copy-btn{background:var(--mod,var(--m1));color:#1A0A2E;border:0;border-radius:100px;
+padding:12px 24px;font-family:inherit;font-weight:800;font-size:14.5px;cursor:pointer}
+.copy-btn:hover{opacity:.87}
+.copy-btn.copied{background:var(--green);color:#fff}
+.site-footer{border-top:1px solid var(--border);padding:30px 20px 50px;text-align:center;
+color:var(--muted);font-size:13.5px}
+.site-footer b{display:block;color:var(--white);font-family:'Playfair Display',Georgia,serif;
+font-size:17px;margin-bottom:6px}
+@media(max-width:600px){body{font-size:16px}.wrap{padding:0 16px 50px}}
+.pre.bad{opacity:.72;border-left:3px solid #F87171}
+.tools{background:var(--mid);border-bottom:1px solid var(--border);padding:20px 0}
+.tw{max-width:1080px;margin:0 auto;padding:0 20px}
+.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:14px}
+.fb{background:var(--card);border:1px solid var(--border);color:var(--muted);border-radius:100px;
+padding:9px 18px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer}
+.fb:hover{color:var(--white)}
+.fb.on{background:var(--m1);border-color:var(--m1);color:#1A0A2E}
+#search{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--white);
+border-radius:10px;padding:13px 16px;font-family:inherit;font-size:16px}
+#search::placeholder{color:var(--muted)}
+#search:focus{outline:none;border-color:var(--m1)}
+.count{color:var(--muted);font-size:13.5px;font-weight:700;margin-top:12px;
+letter-spacing:.06em;text-transform:uppercase}
+.item{background:var(--card);border:1px solid var(--border);border-left:5px solid var(--mod);
+border-radius:12px;margin-bottom:14px;overflow:hidden}
+.ih{display:flex;align-items:flex-start;gap:16px;padding:18px 22px;cursor:pointer}
+.ih:hover{background:rgba(255,255,255,.04)}
+.badge{flex:0 0 auto;background:var(--mod);color:#1A0A2E;font-size:11px;font-weight:800;
+letter-spacing:.07em;text-transform:uppercase;padding:5px 11px;border-radius:100px;margin-top:3px}
+.num{flex:0 0 auto;color:var(--mod);font-family:'Playfair Display',serif;font-weight:700;
+font-size:22px;min-width:34px;text-align:right}
+.ttl{flex:1}
+.ttl b{display:block;font-size:17.5px;font-weight:800;line-height:1.35}
+.ttl span{display:block;color:var(--muted);font-size:14px;margin-top:4px}
+.chev{flex:0 0 auto;color:var(--mod);font-size:15px;font-weight:800;transition:transform .2s}
+.item.open .chev{transform:rotate(90deg)}
+.ib{display:none;padding:0 22px 22px}
+.item.open .ib{display:block}
+.pre{background:var(--prompt-bg);border:1px solid var(--border);border-radius:10px;
+font-family:'SFMono-Regular',Consolas,Menlo,monospace;font-size:13.5px;line-height:1.62;
+color:#E7E1F5;white-space:pre-wrap;word-wrap:break-word;padding:18px 20px;overflow-x:auto}
+.meta{display:grid;gap:12px;margin-bottom:14px}
+.mrow{background:var(--mid);border-radius:10px;padding:13px 18px}
+.mrow b{display:block;color:var(--mod);font-size:11.5px;font-weight:800;letter-spacing:.11em;
+text-transform:uppercase;margin-bottom:5px}
+.mrow span{font-size:14.5px;white-space:pre-line;line-height:1.5}
+.flow{color:var(--muted);font-size:14px;font-family:'SFMono-Regular',Consolas,monospace}
+.none{text-align:center;color:var(--muted);padding:50px 20px;font-size:17px}
+@media(max-width:620px){.ih{flex-wrap:wrap;gap:10px}.num{min-width:auto}.ttl{flex:1 1 100%;order:3}}</style></head><body><header class="top"><div class="wrap"><h1 class="title">The Agent Output Rescue Pack</h1><p class="sub">30 correction sentences and 10 before-and-after rewrites — for when the output comes back generic</p></div></header><div class="tools"><div class="tw"><div class="filters"><button class="fb on" data-cat="All">All</button><button class="fb" data-cat="Too Generic">Too Generic</button><button class="fb" data-cat="Wrong Voice">Wrong Voice</button><button class="fb" data-cat="Length and Shape">Length and Shape</button><button class="fb" data-cat="Wrong Audience">Wrong Audience</button><button class="fb" data-cat="When It Goes Wrong">When It Goes Wrong</button><button class="fb" data-cat="Before and After">Before and After</button></div><input id="search" type="search" placeholder="Search by keyword&hellip;" autocomplete="off"><p class="count" id="count">Showing 40 of 40 fixes</p></div></div><main class="wrap" style="padding-top:26px"><article class="item" data-cat="Too Generic" data-search="too generic the anyone test the output is competent and completely interchangeable with anyone else in your niche. that could have been written for anyone in my niche. rewrite it so only i could have written it — use the specific details from my context, not general statements about my industry." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Too Generic</span><span class="num">1</span><span class="ttl"><b>The anyone test</b><span class="flow">The output is competent and completely interchangeable with anyone else in your niche.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c1">That could have been written for anyone in my niche. Rewrite it so only I could have written it — use the specific details from my context, not general statements about my industry.</pre><button class="copy-btn" data-copy="c1" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Too Generic" data-search="too generic ask for the specific version every sentence is technically true and none of them are about your business. give me the specific version. replace every general statement with something concrete from my business — a real number, a real product name, a real thing that happened." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Too Generic</span><span class="num">2</span><span class="ttl"><b>Ask for the specific version</b><span class="flow">Every sentence is technically true and none of them are about your business.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c2">Give me the specific version. Replace every general statement with something concrete from my business — a real number, a real product name, a real thing that happened.</pre><button class="copy-btn" data-copy="c2" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Too Generic" data-search="too generic name the missing detail you can feel what is missing but the output is not obviously wrong. this is missing anything that proves i have actually done this. add one real example from my business to each point, and tell me which brackets i need to fill in if you do not have the detail." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Too Generic</span><span class="num">3</span><span class="ttl"><b>Name the missing detail</b><span class="flow">You can feel what is missing but the output is not obviously wrong.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c3">This is missing anything that proves I have actually done this. Add one real example from my business to each point, and tell me which brackets I need to fill in if you do not have the detail.</pre><button class="copy-btn" data-copy="c3" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Too Generic" data-search="too generic kill the safe advice it reads like a listicle you have seen fifty times. cut every piece of advice that my audience has already read somewhere else. keep only what is specific to how i do this, and tell me what you removed." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Too Generic</span><span class="num">4</span><span class="ttl"><b>Kill the safe advice</b><span class="flow">It reads like a listicle you have seen fifty times.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c4">Cut every piece of advice that my audience has already read somewhere else. Keep only what is specific to how I do this, and tell me what you removed.</pre><button class="copy-btn" data-copy="c4" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Too Generic" data-search="too generic demand the unpopular version the output agrees with everything and commits to nothing. this is too agreeable. rewrite it taking a clear position that some people in my niche would disagree with — the one that matches what i actually believe from my context." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Too Generic</span><span class="num">5</span><span class="ttl"><b>Demand the unpopular version</b><span class="flow">The output agrees with everything and commits to nothing.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c5">This is too agreeable. Rewrite it taking a clear position that some people in my niche would disagree with — the one that matches what I actually believe from my context.</pre><button class="copy-btn" data-copy="c5" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Too Generic" data-search="too generic force the example it explains a concept without ever showing it. you explained it but never showed it. add one concrete worked example — a real scenario with real numbers — and put it immediately after the explanation." style="--mod:#C9B8E8"><div class="ih"><span class="badge">Too Generic</span><span class="num">6</span><span class="ttl"><b>Force the example</b><span class="flow">It explains a concept without ever showing it.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c6">You explained it but never showed it. Add one concrete worked example — a real scenario with real numbers — and put it immediately after the explanation.</pre><button class="copy-btn" data-copy="c6" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Wrong Voice" data-search="wrong voice re-read the voice guide the output has drifted into polished ai english. re-read my brand voice guide and rewrite that in my actual voice. match the sentence length and the opening style, not just the friendliness." style="--mod:#60A5FA"><div class="ih"><span class="badge">Wrong Voice</span><span class="num">7</span><span class="ttl"><b>Re-read the voice guide</b><span class="flow">The output has drifted into polished AI English.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c7">Re-read my brand voice guide and rewrite that in my actual voice. Match the sentence length and the opening style, not just the friendliness.</pre><button class="copy-btn" data-copy="c7" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Wrong Voice" data-search="wrong voice strip the ai tells you can spot the phrases no human writes. remove every phrase i would never say — delve, unlock, elevate, game-changer, in today&#x27;s fast-paced world, let&#x27;s dive in. rewrite those sentences in plain language." style="--mod:#60A5FA"><div class="ih"><span class="badge">Wrong Voice</span><span class="num">8</span><span class="ttl"><b>Strip the AI tells</b><span class="flow">You can spot the phrases no human writes.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c8">Remove every phrase I would never say — delve, unlock, elevate, game-changer, in today&#x27;s fast-paced world, let&#x27;s dive in. Rewrite those sentences in plain language.</pre><button class="copy-btn" data-copy="c8" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Wrong Voice" data-search="wrong voice one thought per line it has collapsed into dense paragraphs. break this into one thought per line the way i write. short lines. line breaks where i would pause if i were saying it out loud." style="--mod:#60A5FA"><div class="ih"><span class="badge">Wrong Voice</span><span class="num">9</span><span class="ttl"><b>One thought per line</b><span class="flow">It has collapsed into dense paragraphs.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c9">Break this into one thought per line the way I write. Short lines. Line breaks where I would pause if I were saying it out loud.</pre><button class="copy-btn" data-copy="c9" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Wrong Voice" data-search="wrong voice take out the sell it has slipped into marketing language you would never use. this sounds like an advert. take out every phrase designed to persuade and just say what the thing is. trust the reader to decide." style="--mod:#60A5FA"><div class="ih"><span class="badge">Wrong Voice</span><span class="num">10</span><span class="ttl"><b>Take out the sell</b><span class="flow">It has slipped into marketing language you would never use.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c10">This sounds like an advert. Take out every phrase designed to persuade and just say what the thing is. Trust the reader to decide.</pre><button class="copy-btn" data-copy="c10" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Wrong Voice" data-search="wrong voice read it aloud something is off and you cannot name it. read that back and tell me which sentences a real person would not say out loud. then rewrite only those, and leave the rest as it is." style="--mod:#60A5FA"><div class="ih"><span class="badge">Wrong Voice</span><span class="num">11</span><span class="ttl"><b>Read it aloud</b><span class="flow">Something is off and you cannot name it.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c11">Read that back and tell me which sentences a real person would not say out loud. Then rewrite only those, and leave the rest as it is.</pre><button class="copy-btn" data-copy="c11" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Wrong Voice" data-search="wrong voice match the sample the voice guide is not landing. compare what you just wrote with the example sentence at the end of my voice guide. tell me the three ways they differ, then rewrite to match the example." style="--mod:#60A5FA"><div class="ih"><span class="badge">Wrong Voice</span><span class="num">12</span><span class="ttl"><b>Match the sample</b><span class="flow">The voice guide is not landing.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c12">Compare what you just wrote with the example sentence at the end of my voice guide. Tell me the three ways they differ, then rewrite to match the example.</pre><button class="copy-btn" data-copy="c12" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Length and Shape" data-search="length and shape halve it without loss it is twice as long as it needs to be. cut that by half without losing any of the specifics. remove the setup and the summary, not the substance." style="--mod:#4ADE80"><div class="ih"><span class="badge">Length and Shape</span><span class="num">13</span><span class="ttl"><b>Halve it without loss</b><span class="flow">It is twice as long as it needs to be.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c13">Cut that by half without losing any of the specifics. Remove the setup and the summary, not the substance.</pre><button class="copy-btn" data-copy="c13" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Length and Shape" data-search="length and shape cut the warm-up the first three lines say nothing. delete everything before the first useful sentence and start there. my audience does not need the introduction." style="--mod:#4ADE80"><div class="ih"><span class="badge">Length and Shape</span><span class="num">14</span><span class="ttl"><b>Cut the warm-up</b><span class="flow">The first three lines say nothing.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c14">Delete everything before the first useful sentence and start there. My audience does not need the introduction.</pre><button class="copy-btn" data-copy="c14" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Length and Shape" data-search="length and shape cut the wrap-up it ends with a paragraph restating what it just said. remove the closing summary. end on the last real point, then one line telling the reader what to do." style="--mod:#4ADE80"><div class="ih"><span class="badge">Length and Shape</span><span class="num">15</span><span class="ttl"><b>Cut the wrap-up</b><span class="flow">It ends with a paragraph restating what it just said.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c15">Remove the closing summary. End on the last real point, then one line telling the reader what to do.</pre><button class="copy-btn" data-copy="c15" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Length and Shape" data-search="length and shape expand what is thin the most important section is one line long. point 3 is the one people actually need and you gave it one sentence. expand only that point with a specific example, and leave the others as they are." style="--mod:#4ADE80"><div class="ih"><span class="badge">Length and Shape</span><span class="num">16</span><span class="ttl"><b>Expand what is thin</b><span class="flow">The most important section is one line long.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c16">Point 3 is the one people actually need and you gave it one sentence. Expand only that point with a specific example, and leave the others as they are.</pre><button class="copy-btn" data-copy="c16" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Length and Shape" data-search="length and shape fit the platform it is the wrong shape for where it is going. this is going on [name the platform]. rewrite it to the length and format that works there — tell me the target length you are working to before you start." style="--mod:#4ADE80"><div class="ih"><span class="badge">Length and Shape</span><span class="num">17</span><span class="ttl"><b>Fit the platform</b><span class="flow">It is the wrong shape for where it is going.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c17">This is going on [name the platform]. Rewrite it to the length and format that works there — tell me the target length you are working to before you start.</pre><button class="copy-btn" data-copy="c17" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Length and Shape" data-search="length and shape one idea only it is trying to cover three things at once. there are three separate ideas in here. pick the strongest one, cut the other two, and rewrite the whole thing around it. tell me what you cut so i can use it later." style="--mod:#4ADE80"><div class="ih"><span class="badge">Length and Shape</span><span class="num">18</span><span class="ttl"><b>One idea only</b><span class="flow">It is trying to cover three things at once.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c18">There are three separate ideas in here. Pick the strongest one, cut the other two, and rewrite the whole thing around it. Tell me what you cut so I can use it later.</pre><button class="copy-btn" data-copy="c18" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Wrong Audience" data-search="wrong audience reset the starting point it is written for someone further along than your audience. you are writing for someone further along than my audience. rewrite it for someone who [describe where they actually are — for example, has bought three courses and never launched anything]." style="--mod:#FB923C"><div class="ih"><span class="badge">Wrong Audience</span><span class="num">19</span><span class="ttl"><b>Reset the starting point</b><span class="flow">It is written for someone further along than your audience.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c19">You are writing for someone further along than my audience. Rewrite it for someone who [describe where they actually are — for example, has bought three courses and never launched anything].</pre><button class="copy-btn" data-copy="c19" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Wrong Audience" data-search="wrong audience remove the jargon it assumes knowledge your reader does not have. take out every term my audience would have to look up. where a term is genuinely needed, explain it in the same sentence in plain words." style="--mod:#FB923C"><div class="ih"><span class="badge">Wrong Audience</span><span class="num">20</span><span class="ttl"><b>Remove the jargon</b><span class="flow">It assumes knowledge your reader does not have.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c20">Take out every term my audience would have to look up. Where a term is genuinely needed, explain it in the same sentence in plain words.</pre><button class="copy-btn" data-copy="c20" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Wrong Audience" data-search="wrong audience stop assuming the setup it assumes tools, budget or a team your reader does not have. this assumes things my audience does not have. rewrite it for someone with no budget, no team and no technical background." style="--mod:#FB923C"><div class="ih"><span class="badge">Wrong Audience</span><span class="num">21</span><span class="ttl"><b>Stop assuming the setup</b><span class="flow">It assumes tools, budget or a team your reader does not have.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c21">This assumes things my audience does not have. Rewrite it for someone with no budget, no team and no technical background.</pre><button class="copy-btn" data-copy="c21" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Wrong Audience" data-search="wrong audience speak to one person it addresses a crowd. rewrite this speaking to one person rather than an audience. use you, not everyone or you guys." style="--mod:#FB923C"><div class="ih"><span class="badge">Wrong Audience</span><span class="num">22</span><span class="ttl"><b>Speak to one person</b><span class="flow">It addresses a crowd.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c22">Rewrite this speaking to one person rather than an audience. Use you, not everyone or you guys.</pre><button class="copy-btn" data-copy="c22" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Wrong Audience" data-search="wrong audience name the real problem it solves a problem your audience does not actually have. the problem you described is not the one my audience has. their real problem is [describe it]. rewrite the whole thing around that instead." style="--mod:#FB923C"><div class="ih"><span class="badge">Wrong Audience</span><span class="num">23</span><span class="ttl"><b>Name the real problem</b><span class="flow">It solves a problem your audience does not actually have.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c23">The problem you described is not the one my audience has. Their real problem is [describe it]. Rewrite the whole thing around that instead.</pre><button class="copy-btn" data-copy="c23" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Wrong Audience" data-search="wrong audience drop the condescension it explains something obvious as though the reader is new to life. this is talking down to my audience. they are capable adults who are new to this specific thing, not new to everything. rewrite it accordingly." style="--mod:#FB923C"><div class="ih"><span class="badge">Wrong Audience</span><span class="num">24</span><span class="ttl"><b>Drop the condescension</b><span class="flow">It explains something obvious as though the reader is new to life.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c24">This is talking down to my audience. They are capable adults who are new to this specific thing, not new to everything. Rewrite it accordingly.</pre><button class="copy-btn" data-copy="c24" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="When It Goes Wrong" data-search="when it goes wrong go back one step it drifted at a specific step in a multi-step agent. go back to step [number] and redo it with [your correction]. keep everything from the earlier steps exactly as it is." style="--mod:#F472B6"><div class="ih"><span class="badge">When It Goes Wrong</span><span class="num">25</span><span class="ttl"><b>Go back one step</b><span class="flow">It drifted at a specific step in a multi-step agent.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c25">Go back to step [number] and redo it with [your correction]. Keep everything from the earlier steps exactly as it is.</pre><button class="copy-btn" data-copy="c25" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="When It Goes Wrong" data-search="when it goes wrong keep what worked the correction risks rewriting the good parts. keep points 1, 2 and 5 exactly as they are. only rewrite point 3 and point 4, using [your correction]." style="--mod:#F472B6"><div class="ih"><span class="badge">When It Goes Wrong</span><span class="num">26</span><span class="ttl"><b>Keep what worked</b><span class="flow">The correction risks rewriting the good parts.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c26">Keep points 1, 2 and 5 exactly as they are. Only rewrite point 3 and point 4, using [your correction].</pre><button class="copy-btn" data-copy="c26" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="When It Goes Wrong" data-search="when it goes wrong stop and check it is running ahead and making assumptions. stop before the next step. tell me what you are about to do and what you are assuming about my business, and wait for me to confirm." style="--mod:#F472B6"><div class="ih"><span class="badge">When It Goes Wrong</span><span class="num">27</span><span class="ttl"><b>Stop and check</b><span class="flow">It is running ahead and making assumptions.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c27">Stop before the next step. Tell me what you are about to do and what you are assuming about my business, and wait for me to confirm.</pre><button class="copy-btn" data-copy="c27" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="When It Goes Wrong" data-search="when it goes wrong facts are wrong it invented a product, a price or a detail. you have made up details about my business. here are the real ones: [list them]. rewrite using only these, and if you need something i have not given you, ask instead of inventing it." style="--mod:#F472B6"><div class="ih"><span class="badge">When It Goes Wrong</span><span class="num">28</span><span class="ttl"><b>Facts are wrong</b><span class="flow">It invented a product, a price or a detail.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c28">You have made up details about my business. Here are the real ones: [list them]. Rewrite using only these, and if you need something I have not given you, ask instead of inventing it.</pre><button class="copy-btn" data-copy="c28" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="When It Goes Wrong" data-search="when it goes wrong ask what it needs the output is weak and you are not sure why. that output is not usable. rather than trying again, tell me what information you are missing about my business that would let you write this properly. ask me up to 5 questions, one at a time." style="--mod:#F472B6"><div class="ih"><span class="badge">When It Goes Wrong</span><span class="num">29</span><span class="ttl"><b>Ask what it needs</b><span class="flow">The output is weak and you are not sure why.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c29">That output is not usable. Rather than trying again, tell me what information you are missing about my business that would let you write this properly. Ask me up to 5 questions, one at a time.</pre><button class="copy-btn" data-copy="c29" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="When It Goes Wrong" data-search="when it goes wrong third time — stop correcting you have made the same correction three times. i have corrected this three times now. this means my permanent context or voice guide is missing something. tell me exactly what to add to my custom instructions so i never have to make this correction again." style="--mod:#F472B6"><div class="ih"><span class="badge">When It Goes Wrong</span><span class="num">30</span><span class="ttl"><b>Third time — stop correcting</b><span class="flow">You have made the same correction three times.</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:12px"><b>Type this to the agent</b></div><pre class="pre" id="c30">I have corrected this three times now. This means my permanent context or voice guide is missing something. Tell me exactly what to add to my Custom Instructions so I never have to make this correction again.</pre><button class="copy-btn" data-copy="c30" style="margin-top:14px">Copy Correction</button></div></article><article class="item" data-cat="Before and After" data-search="before and after a content post content consistency is key when it comes to growing your online business.
+many entrepreneurs struggle with staying consistent, but showing up
+regularly is what separates those who succeed from those who don&#x27;t.
+start small, build the habit, and watch your audience grow! i posted every day for six weeks and got 40 followers.
+then i posted twice a week for six weeks and got 300.
+
+the difference was not consistency.
+it was that i stopped posting things i did not care about
+just to fill a slot.
+
+posting daily is easy to measure, which is why everyone
+recommends it. it is not the thing that works. the before has no numbers, no position and an exclamation mark. the after commits to something specific that the writer could only say because it happened to her." style="--mod:#FBBF24"><div class="ih"><span class="badge">Before and After</span><span class="num">31</span><span class="ttl"><b>A content post</b><span class="flow">Content</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:10px"><b>Before &mdash; what the agent gave you</b></div><pre class="pre bad">Consistency is key when it comes to growing your online business.
+Many entrepreneurs struggle with staying consistent, but showing up
+regularly is what separates those who succeed from those who don&#x27;t.
+Start small, build the habit, and watch your audience grow!</pre><div class="mrow" style="margin:16px 0 10px"><b>After &mdash; the fixed version</b></div><pre class="pre" id="e31">I posted every day for six weeks and got 40 followers.
+Then I posted twice a week for six weeks and got 300.
+
+The difference was not consistency.
+It was that I stopped posting things I did not care about
+just to fill a slot.
+
+Posting daily is easy to measure, which is why everyone
+recommends it. It is not the thing that works.</pre><button class="copy-btn" data-copy="e31" style="margin-top:14px">Copy the After</button><div class="mrow" style="margin-top:16px"><b>Why it works</b><span>The before has no numbers, no position and an exclamation mark. The after commits to something specific that the writer could only say because it happened to her.</span></div></div></article><article class="item" data-cat="Before and After" data-search="before and after a product listing opener products are you ready to take your business to the next level? this
+comprehensive guide is packed with everything you need to succeed
+in the world of digital products. whether you&#x27;re a complete beginner
+or looking to scale, this is for you. you have written the product. it is sitting in a google doc
+and you have not listed it anywhere because you do not know
+what to charge or how to describe it.
+
+this is a 40-page guide that takes you from finished document
+to live listing in one afternoon.
+
+it is not for you if you have not built the product yet. the before is for everyone, which means it is for nobody. the after names one specific moment and disqualifies the wrong buyer, which is what makes the right one keep reading." style="--mod:#FBBF24"><div class="ih"><span class="badge">Before and After</span><span class="num">32</span><span class="ttl"><b>A product listing opener</b><span class="flow">Products</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:10px"><b>Before &mdash; what the agent gave you</b></div><pre class="pre bad">Are you ready to take your business to the next level? This
+comprehensive guide is packed with everything you need to succeed
+in the world of digital products. Whether you&#x27;re a complete beginner
+or looking to scale, this is for you.</pre><div class="mrow" style="margin:16px 0 10px"><b>After &mdash; the fixed version</b></div><pre class="pre" id="e32">You have written the product. It is sitting in a Google Doc
+and you have not listed it anywhere because you do not know
+what to charge or how to describe it.
+
+This is a 40-page guide that takes you from finished document
+to live listing in one afternoon.
+
+It is not for you if you have not built the product yet.</pre><button class="copy-btn" data-copy="e32" style="margin-top:14px">Copy the After</button><div class="mrow" style="margin-top:16px"><b>Why it works</b><span>The before is for everyone, which means it is for nobody. The after names one specific moment and disqualifies the wrong buyer, which is what makes the right one keep reading.</span></div></div></article><article class="item" data-cat="Before and After" data-search="before and after a sales dm sales hey lovely! i hope you&#x27;re having an amazing day. i noticed you&#x27;re
+in the digital products space and i&#x27;d love to connect! i help women
+just like you build profitable online businesses. would you be
+interested in hearing more? hi sarah — your post about pricing your first product
+is the reason i finally raised mine last month.
+
+i have a short guide on the same thing. happy to send it
+over if it is useful, no strings. the before could be sent to a thousand people and reads that way. the after references one specific post, gives something before asking, and does not pitch." style="--mod:#FBBF24"><div class="ih"><span class="badge">Before and After</span><span class="num">33</span><span class="ttl"><b>A sales DM</b><span class="flow">Sales</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:10px"><b>Before &mdash; what the agent gave you</b></div><pre class="pre bad">Hey lovely! I hope you&#x27;re having an amazing day. I noticed you&#x27;re
+in the digital products space and I&#x27;d love to connect! I help women
+just like you build profitable online businesses. Would you be
+interested in hearing more?</pre><div class="mrow" style="margin:16px 0 10px"><b>After &mdash; the fixed version</b></div><pre class="pre" id="e33">Hi Sarah — your post about pricing your first product
+is the reason I finally raised mine last month.
+
+I have a short guide on the same thing. Happy to send it
+over if it is useful, no strings.</pre><button class="copy-btn" data-copy="e33" style="margin-top:14px">Copy the After</button><div class="mrow" style="margin-top:16px"><b>Why it works</b><span>The before could be sent to a thousand people and reads that way. The after references one specific post, gives something before asking, and does not pitch.</span></div></div></article><article class="item" data-cat="Before and After" data-search="before and after a launch post sales 🚀 it&#x27;s here! i&#x27;m so excited to finally share my brand new course
+with you! this is everything i&#x27;ve learned over the years packed into
+one incredible program. doors are open for a limited time only.
+don&#x27;t miss out — link in bio!!! the course is live.
+
+it is 19 lessons on building ai agents, written for people
+who have never written a line of code and do not want to.
+
+it costs £27 and it is open until friday because i am
+running the first cohort live and cannot start it twice.
+
+link in bio. the urgency in the before is invented and readers know it. the after gives a real reason for the deadline, which is the only kind that works twice." style="--mod:#FBBF24"><div class="ih"><span class="badge">Before and After</span><span class="num">34</span><span class="ttl"><b>A launch post</b><span class="flow">Sales</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:10px"><b>Before &mdash; what the agent gave you</b></div><pre class="pre bad">🚀 IT&#x27;S HERE! I&#x27;m SO excited to finally share my brand new course
+with you! This is everything I&#x27;ve learned over the years packed into
+one incredible program. Doors are open for a LIMITED TIME ONLY.
+Don&#x27;t miss out — link in bio!!!</pre><div class="mrow" style="margin:16px 0 10px"><b>After &mdash; the fixed version</b></div><pre class="pre" id="e34">The course is live.
+
+It is 19 lessons on building AI agents, written for people
+who have never written a line of code and do not want to.
+
+It costs £27 and it is open until Friday because I am
+running the first cohort live and cannot start it twice.
+
+Link in bio.</pre><button class="copy-btn" data-copy="e34" style="margin-top:14px">Copy the After</button><div class="mrow" style="margin-top:16px"><b>Why it works</b><span>The urgency in the before is invented and readers know it. The after gives a real reason for the deadline, which is the only kind that works twice.</span></div></div></article><article class="item" data-cat="Before and After" data-search="before and after an faq answer customer service great question! our course is designed to be accessible for
+everyone, regardless of their experience level. we&#x27;ve had students
+from all walks of life achieve amazing results. you&#x27;ll be supported
+every step of the way! q: will this work if i have never used ai before?
+
+yes. lesson 1.1 assumes you have never opened claude.
+
+what it does assume is that you have a business, even a
+small one, with something to sell. if you do not have that
+yet, this is not the right first purchase. the before answers a different, easier question. the after answers the real one and says who should not buy, which is why people believe the rest of the page." style="--mod:#FBBF24"><div class="ih"><span class="badge">Before and After</span><span class="num">35</span><span class="ttl"><b>An FAQ answer</b><span class="flow">Customer Service</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:10px"><b>Before &mdash; what the agent gave you</b></div><pre class="pre bad">Great question! Our course is designed to be accessible for
+everyone, regardless of their experience level. We&#x27;ve had students
+from all walks of life achieve amazing results. You&#x27;ll be supported
+every step of the way!</pre><div class="mrow" style="margin:16px 0 10px"><b>After &mdash; the fixed version</b></div><pre class="pre" id="e35">Q: Will this work if I have never used AI before?
+
+Yes. Lesson 1.1 assumes you have never opened Claude.
+
+What it does assume is that you have a business, even a
+small one, with something to sell. If you do not have that
+yet, this is not the right first purchase.</pre><button class="copy-btn" data-copy="e35" style="margin-top:14px">Copy the After</button><div class="mrow" style="margin-top:16px"><b>Why it works</b><span>The before answers a different, easier question. The after answers the real one and says who should not buy, which is why people believe the rest of the page.</span></div></div></article><article class="item" data-cat="Before and After" data-search="before and after a welcome email customer service subject: welcome to the family! 🎉
+
+hi there! we&#x27;re absolutely thrilled to have you join our community
+of amazing entrepreneurs. you&#x27;re now part of something special!
+keep an eye on your inbox for lots of exciting content coming
+your way. subject: your guide is attached — start with page 4
+
+hi sarah,
+
+the guide is attached.
+
+skip to page 4 and do the exercise there before you read
+anything else. it takes ten minutes and the rest of the
+guide makes more sense afterwards.
+
+reply to this if you get stuck. i read every one.
+
+bansari the before delivers nothing and promises future email. the after delivers the thing, names one first action, and uses the person&#x27;s name because it was mapped from the form." style="--mod:#FBBF24"><div class="ih"><span class="badge">Before and After</span><span class="num">36</span><span class="ttl"><b>A welcome email</b><span class="flow">Customer Service</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:10px"><b>Before &mdash; what the agent gave you</b></div><pre class="pre bad">Subject: Welcome to the family! 🎉
+
+Hi there! We&#x27;re absolutely thrilled to have you join our community
+of amazing entrepreneurs. You&#x27;re now part of something special!
+Keep an eye on your inbox for lots of exciting content coming
+your way.</pre><div class="mrow" style="margin:16px 0 10px"><b>After &mdash; the fixed version</b></div><pre class="pre" id="e36">Subject: Your guide is attached — start with page 4
+
+Hi Sarah,
+
+The guide is attached.
+
+Skip to page 4 and do the exercise there before you read
+anything else. It takes ten minutes and the rest of the
+guide makes more sense afterwards.
+
+Reply to this if you get stuck. I read every one.
+
+Bansari</pre><button class="copy-btn" data-copy="e36" style="margin-top:14px">Copy the After</button><div class="mrow" style="margin-top:16px"><b>Why it works</b><span>The before delivers nothing and promises future email. The after delivers the thing, names one first action, and uses the person&#x27;s name because it was mapped from the form.</span></div></div></article><article class="item" data-cat="Before and After" data-search="before and after a caption content building a business isn&#x27;t easy, but it&#x27;s so worth it. there will
+be hard days and days you want to give up. keep going! your future
+self will thank you. 💪 save this for when you need a reminder. i made £11 in march.
+
+i nearly stopped in april, and the only reason i did not is
+that i had already told twelve people i was doing it.
+
+june was £940.
+
+i am not telling you it always works. i am telling you that
+march did not mean what i thought it meant. the before is a motivational poster. the after is three numbers and an admission, which is the only reason anyone stops scrolling." style="--mod:#FBBF24"><div class="ih"><span class="badge">Before and After</span><span class="num">37</span><span class="ttl"><b>A caption</b><span class="flow">Content</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:10px"><b>Before &mdash; what the agent gave you</b></div><pre class="pre bad">Building a business isn&#x27;t easy, but it&#x27;s so worth it. There will
+be hard days and days you want to give up. Keep going! Your future
+self will thank you. 💪 Save this for when you need a reminder.</pre><div class="mrow" style="margin:16px 0 10px"><b>After &mdash; the fixed version</b></div><pre class="pre" id="e37">I made £11 in March.
+
+I nearly stopped in April, and the only reason I did not is
+that I had already told twelve people I was doing it.
+
+June was £940.
+
+I am not telling you it always works. I am telling you that
+March did not mean what I thought it meant.</pre><button class="copy-btn" data-copy="e37" style="margin-top:14px">Copy the After</button><div class="mrow" style="margin-top:16px"><b>Why it works</b><span>The before is a motivational poster. The after is three numbers and an admission, which is the only reason anyone stops scrolling.</span></div></div></article><article class="item" data-cat="Before and After" data-search="before and after a testimonial request customer service hi! i hope you&#x27;re loving the course so far. if you have a moment,
+i&#x27;d really appreciate it if you could leave me a testimonial. it
+would mean the world and helps me reach more people like you.
+thank you so much in advance! hi sarah — three quick questions, one line each is fine:
+
+1. what were you doing about your content before the course?
+2. what is different now, specifically?
+3. who would you tell to buy it?
+
+i would like to quote your answers on the sales page if
+that is alright. say no and it changes nothing. the before asks for a testimonial, which is work. the after asks three specific questions, which is easy, and the answers are a better testimonial than anyone writes voluntarily." style="--mod:#FBBF24"><div class="ih"><span class="badge">Before and After</span><span class="num">38</span><span class="ttl"><b>A testimonial request</b><span class="flow">Customer Service</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:10px"><b>Before &mdash; what the agent gave you</b></div><pre class="pre bad">Hi! I hope you&#x27;re loving the course so far. If you have a moment,
+I&#x27;d really appreciate it if you could leave me a testimonial. It
+would mean the world and helps me reach more people like you.
+Thank you so much in advance!</pre><div class="mrow" style="margin:16px 0 10px"><b>After &mdash; the fixed version</b></div><pre class="pre" id="e38">Hi Sarah — three quick questions, one line each is fine:
+
+1. What were you doing about your content before the course?
+2. What is different now, specifically?
+3. Who would you tell to buy it?
+
+I would like to quote your answers on the sales page if
+that is alright. Say no and it changes nothing.</pre><button class="copy-btn" data-copy="e38" style="margin-top:14px">Copy the After</button><div class="mrow" style="margin-top:16px"><b>Why it works</b><span>The before asks for a testimonial, which is work. The after asks three specific questions, which is easy, and the answers are a better testimonial than anyone writes voluntarily.</span></div></div></article><article class="item" data-cat="Before and After" data-search="before and after a refund reply customer service hi, i&#x27;m so sorry to hear that the course didn&#x27;t meet your
+expectations! we work really hard to make sure everyone gets value.
+could you let me know more about what went wrong so we can improve?
+i&#x27;d love to find a way to make this work for you. hi sarah,
+
+refund processed — it will be back with you in 3 to 5 days.
+
+if you have thirty seconds, i would find it useful to know
+which lesson you stopped at. no obligation.
+
+thanks for trying it.
+
+bansari the before makes the customer negotiate for something they are entitled to. the after processes it first and asks second, which is the version people tell their friends about." style="--mod:#FBBF24"><div class="ih"><span class="badge">Before and After</span><span class="num">39</span><span class="ttl"><b>A refund reply</b><span class="flow">Customer Service</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:10px"><b>Before &mdash; what the agent gave you</b></div><pre class="pre bad">Hi, I&#x27;m so sorry to hear that the course didn&#x27;t meet your
+expectations! We work really hard to make sure everyone gets value.
+Could you let me know more about what went wrong so we can improve?
+I&#x27;d love to find a way to make this work for you.</pre><div class="mrow" style="margin:16px 0 10px"><b>After &mdash; the fixed version</b></div><pre class="pre" id="e39">Hi Sarah,
+
+Refund processed — it will be back with you in 3 to 5 days.
+
+If you have thirty seconds, I would find it useful to know
+which lesson you stopped at. No obligation.
+
+Thanks for trying it.
+
+Bansari</pre><button class="copy-btn" data-copy="e39" style="margin-top:14px">Copy the After</button><div class="mrow" style="margin-top:16px"><b>Why it works</b><span>The before makes the customer negotiate for something they are entitled to. The after processes it first and asks second, which is the version people tell their friends about.</span></div></div></article><article class="item" data-cat="Before and After" data-search="before and after a weekly task list business this week, focus on growing your audience and creating valuable
+content. consider reaching out to potential collaborators and think
+about how you can improve your offers. try to be consistent with
+your posting schedule. priority 1 — write and schedule 10 posts on pricing
+  (weekly content agent, monday, 20 minutes)
+priority 2 — rewrite the £27 guide listing using the 5 phrases
+  from the audience research output
+priority 3 — send 3 connection messages, one a day, tue to thu
+
+also: cancel the canva pro subscription you stopped using
+not this week: the new product idea every task in the before starts with focus, consider or think. every task in the after could be finished and ticked off, and it names the one thing not to do." style="--mod:#FBBF24"><div class="ih"><span class="badge">Before and After</span><span class="num">40</span><span class="ttl"><b>A weekly task list</b><span class="flow">Business</span></span><span class="chev">&rsaquo;</span></div><div class="ib"><div class="mrow" style="margin-bottom:10px"><b>Before &mdash; what the agent gave you</b></div><pre class="pre bad">This week, focus on growing your audience and creating valuable
+content. Consider reaching out to potential collaborators and think
+about how you can improve your offers. Try to be consistent with
+your posting schedule.</pre><div class="mrow" style="margin:16px 0 10px"><b>After &mdash; the fixed version</b></div><pre class="pre" id="e40">PRIORITY 1 — Write and schedule 10 posts on pricing
+  (weekly content agent, Monday, 20 minutes)
+PRIORITY 2 — Rewrite the £27 guide listing using the 5 phrases
+  from the audience research output
+PRIORITY 3 — Send 3 connection messages, one a day, Tue to Thu
+
+Also: cancel the Canva Pro subscription you stopped using
+Not this week: the new product idea</pre><button class="copy-btn" data-copy="e40" style="margin-top:14px">Copy the After</button><div class="mrow" style="margin-top:16px"><b>Why it works</b><span>Every task in the before starts with focus, consider or think. Every task in the after could be finished and ticked off, and it names the one thing not to do.</span></div></div></article><p class="none" id="none" style="display:none">No fixes match that search. Try a different keyword or clear the filter.</p></main><footer class="site-footer"><b>GetPaidToBeYouOnline</b>AI Agents in Action</footer><script>var TOTAL=40; var NOUN="fixes";
+var items=[].slice.call(document.querySelectorAll('.item'));
+var cnt=document.getElementById('count'), none=document.getElementById('none');
+var cat='All', q='';
+function apply(){
+  var shown=0;
+  items.forEach(function(it){
+    var okc = cat==='All' || it.dataset.cat===cat;
+    var okq = !q || it.dataset.search.indexOf(q)>-1;
+    var ok = okc && okq;
+    it.style.display = ok ? '' : 'none';
+    if(ok) shown++;
+  });
+  cnt.textContent='Showing '+shown+' of '+TOTAL+' '+NOUN;
+  none.style.display = shown ? 'none' : 'block';
+}
+document.querySelectorAll('.fb').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.fb').forEach(function(x){x.classList.remove('on')});
+    b.classList.add('on'); cat=b.dataset.cat; apply();
+  });
+});
+document.getElementById('search').addEventListener('input',function(e){
+  q=e.target.value.toLowerCase().trim(); apply();
+});
+items.forEach(function(it){
+  it.querySelector('.ih').addEventListener('click',function(){it.classList.toggle('open')});
+});
+apply();
+
+function wireCopy(){
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    if(btn._wired) return; btn._wired=true;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var el=document.getElementById(btn.getAttribute('data-copy'));
+      if(!el) return;
+      var text=el.innerText, orig=btn.textContent;
+      function done(){btn.textContent='\u2713  Copied';btn.classList.add('copied');
+        setTimeout(function(){btn.textContent=orig;btn.classList.remove('copied')},2000)}
+      function fallback(){
+        var ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');
+        ta.style.position='absolute';ta.style.left='-9999px';document.body.appendChild(ta);
+        ta.select();ta.setSelectionRange(0,ta.value.length);
+        var ok=false;try{ok=document.execCommand('copy')}catch(err){ok=false}
+        document.body.removeChild(ta);
+        if(ok){done()}else{btn.textContent='Press Ctrl+C';
+          setTimeout(function(){btn.textContent=orig},2500)}
+      }
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done,fallback)
+      }else{fallback()}
+    });
+  });
+}
+wireCopy();
+</script></body></html>
